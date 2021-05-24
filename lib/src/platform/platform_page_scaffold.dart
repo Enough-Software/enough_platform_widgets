@@ -14,6 +14,7 @@ class PlatformPageScaffold extends StatelessWidget {
   final PlatformNavBar? bottomNavBar;
   final bool iosContentPadding;
   final bool iosContentPaddingBottom;
+  final bool cupertinoBlurBarBackground;
   final MaterialScaffoldData Function(BuildContext, PlatformTarget)? material;
   final CupertinoPageScaffoldData Function(BuildContext, PlatformTarget)?
       cupertino;
@@ -30,6 +31,7 @@ class PlatformPageScaffold extends StatelessWidget {
     this.iosContentPaddingBottom = false,
     this.material,
     this.cupertino,
+    this.cupertinoBlurBarBackground = true,
   }) : super(key: key);
 
   @override
@@ -50,15 +52,16 @@ class PlatformPageScaffold extends StatelessWidget {
   CupertinoPageScaffoldData _buildCupertino(
       BuildContext context, PlatformTarget platform) {
     final data = cupertino?.call(context, platform);
+    final bbar = bottomBar;
+    final content = data?.body ?? body;
     return CupertinoPageScaffoldData(
       backgroundColor: data?.backgroundColor,
-      body: bottomBar == null
-          ? data?.body ?? body
-          : Column(
-              children: [
-                Expanded(child: data?.body ?? body ?? Container()),
-                bottomBar!
-              ],
+      body: bbar == null
+          ? content
+          : CupertinoPageWithBar(
+              child: content ?? Container(),
+              bar: bbar,
+              blurBackground: cupertinoBlurBarBackground,
             ),
       widgetKey: data?.widgetKey,
       navigationBar: data?.navigationBar,
@@ -75,11 +78,13 @@ class PlatformPageScaffold extends StatelessWidget {
       BuildContext context, PlatformTarget platform) {
     final data = material?.call(context, platform);
     return MaterialScaffoldData(
+      // set bottom bar:
+      bottomNavBar: data?.bottomNavBar ?? bottomBar,
+      // copy other custom values:
       backgroundColor: data?.backgroundColor,
       body: data?.body,
       widgetKey: data?.widgetKey,
       appBar: data?.appBar,
-      bottomNavBar: data?.bottomNavBar ?? bottomBar,
       drawer: data?.drawer,
       endDrawer: data?.endDrawer,
       floatingActionButton: data?.floatingActionButton,
