@@ -7,13 +7,15 @@ class CupertinoPageWithBar extends StatelessWidget {
   final Widget bar;
   final Alignment alignment;
   final bool blurBackground;
+  final double backgroundOpacity;
 
   const CupertinoPageWithBar({
     Key? key,
     required this.child,
     required this.bar,
     this.alignment = Alignment.bottomCenter,
-    this.blurBackground = true,
+    this.blurBackground = false,
+    this.backgroundOpacity = 1.0,
   }) : super(key: key);
 
   @override
@@ -27,7 +29,14 @@ class CupertinoPageWithBar extends StatelessWidget {
                 ),
                 child: bar),
           )
-        : bar;
+        : (backgroundOpacity < 1.0)
+            ? Container(
+                color: CupertinoTheme.of(context)
+                    .barBackgroundColor
+                    .withOpacity(backgroundOpacity),
+                child: bar,
+              )
+            : bar;
     return Stack(
       children: [
         Positioned.fill(child: child),
