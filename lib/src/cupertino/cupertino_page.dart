@@ -39,7 +39,11 @@ class CupertinoPageWithBar extends StatelessWidget {
             : bar;
     return Stack(
       children: [
-        Positioned.fill(child: child),
+        Positioned.fill(
+            child: Padding(
+          padding: const EdgeInsets.only(bottom: 44.0),
+          child: child,
+        )),
         Align(
           alignment: alignment,
           child: wrappedBar,
