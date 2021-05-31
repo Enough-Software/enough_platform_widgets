@@ -14,8 +14,6 @@ class PlatformPageScaffold extends StatelessWidget {
   final PlatformNavBar? bottomNavBar;
   final bool iosContentPadding;
   final bool iosContentPaddingBottom;
-  final bool cupertinoBlurBarBackground;
-  final double cupertinoBarBackgroundOpacity;
   final MaterialScaffoldData Function(BuildContext, PlatformTarget)? material;
   final CupertinoPageScaffoldData Function(BuildContext, PlatformTarget)?
       cupertino;
@@ -32,8 +30,6 @@ class PlatformPageScaffold extends StatelessWidget {
     this.iosContentPaddingBottom = false,
     this.material,
     this.cupertino,
-    this.cupertinoBlurBarBackground = false,
-    this.cupertinoBarBackgroundOpacity = 1.0,
   }) : super(key: key);
 
   @override
@@ -63,8 +59,6 @@ class PlatformPageScaffold extends StatelessWidget {
           : CupertinoPageWithBar(
               child: content ?? Container(),
               bar: bbar,
-              blurBackground: cupertinoBlurBarBackground,
-              backgroundOpacity: cupertinoBarBackgroundOpacity,
             ),
       widgetKey: data?.widgetKey,
       navigationBar: data?.navigationBar,

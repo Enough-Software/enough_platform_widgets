@@ -67,8 +67,13 @@ class CupertinoCheckboxListTile extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              decoration:
-                  BoxDecoration(border: Border(bottom: BorderSide(width: 1))),
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                      width: 1,
+                      color: CupertinoTheme.of(context).barBackgroundColor),
+                ),
+              ),
               child: Padding(
                 padding: padding,
                 child: content,

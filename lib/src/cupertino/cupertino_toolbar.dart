@@ -14,8 +14,9 @@ class CupertinoToolbar extends StatelessWidget {
     }
     return SafeArea(
       top: false,
-      child: SizedBox(
+      child: Container(
         height: 44.0,
+        color: CupertinoTheme.of(context).barBackgroundColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: children,
