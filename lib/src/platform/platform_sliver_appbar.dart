@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class PlatformSliverAppBar extends StatelessWidget {
   final Widget? title;
+  final Widget? leading;
   final bool floating;
   final bool snap;
   final bool pinned;
@@ -12,23 +13,25 @@ class PlatformSliverAppBar extends StatelessWidget {
   final String? previousPageTitle;
   final Widget? flexibleSpace;
 
-  const PlatformSliverAppBar(
-      {Key? key,
-      this.title,
-      this.floating = false,
-      this.snap = false,
-      this.pinned = false,
-      this.stretch = false,
-      this.actions,
-      this.previousPageTitle,
-      this.flexibleSpace})
-      : super(key: key);
+  const PlatformSliverAppBar({
+    Key? key,
+    this.title,
+    this.leading,
+    this.floating = false,
+    this.snap = false,
+    this.pinned = false,
+    this.stretch = false,
+    this.actions,
+    this.previousPageTitle,
+    this.flexibleSpace,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PlatformWidget(
       material: (context, platform) => SliverAppBar(
         title: title,
+        leading: leading,
         flexibleSpace: flexibleSpace,
         floating: floating,
         snap: snap,
