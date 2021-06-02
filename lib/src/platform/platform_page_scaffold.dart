@@ -2,7 +2,7 @@ import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-/// Provides a basis for any cupertino (iOS / macOS) or Android app.
+/// Provides a basis for any cupertino (iOS / macOS) or material (Android, web) app.
 ///
 /// Adds the option to provide a bottom bar
 class PlatformPageScaffold extends StatelessWidget {

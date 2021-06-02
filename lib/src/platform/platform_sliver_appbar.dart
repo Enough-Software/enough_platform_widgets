@@ -39,13 +39,23 @@ class PlatformSliverAppBar extends StatelessWidget {
         stretch: stretch,
         actions: actions,
       ),
-      cupertino: (context, platform) => CupertinoSliverNavigationBar(
-        stretch: stretch,
-        largeTitle: title,
-        leading: leading,
-        previousPageTitle: previousPageTitle,
-        trailing: (actions?.length == 1) ? actions!.first : null,
-      ),
+      cupertino: (context, platform) {
+        final trailing = (actions == null)
+            ? null
+            : (actions?.length == 1)
+                ? actions!.first
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: actions!,
+                  );
+        return CupertinoSliverNavigationBar(
+          stretch: stretch,
+          largeTitle: title,
+          leading: leading,
+          previousPageTitle: previousPageTitle,
+          trailing: trailing,
+        );
+      },
     );
   }
 }

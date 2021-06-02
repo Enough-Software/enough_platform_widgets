@@ -9,6 +9,8 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
       itemBuilder;
   final Widget? title;
   final Widget? message;
+  final Widget? icon;
+
   PlatformPopupMenuButton({
     Key? key,
     this.child,
@@ -16,6 +18,7 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
     this.onSelected,
     this.title,
     this.message,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -44,13 +47,14 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
           popupItems.insert(0, header);
         }
         return PopupMenuButton<T>(
+          icon: icon,
           itemBuilder: (context) => popupItems,
           onSelected: onSelected,
           child: child,
         );
       },
       cupertino: (context, platform) => CupertinoButton(
-          child: child ?? Icon(CupertinoIcons.ellipsis_vertical),
+          child: icon ?? child ?? Icon(CupertinoIcons.ellipsis_vertical),
           onPressed: () => _showActionSheet(context)),
     );
   }
