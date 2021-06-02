@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+
+import '../../cupertino.dart';
 
 class PlatformChip extends StatelessWidget {
   final Widget label;
@@ -11,14 +14,34 @@ class PlatformChip extends StatelessWidget {
       material: (context, platform) => Chip(
         label: label,
       ),
-      cupertino: (context, platform) => Container(
-        decoration: BoxDecoration(
-            border: Border.all(),
-            borderRadius: BorderRadius.all(Radius.circular(8))),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: label,
+      cupertino: (context, platform) => CupertinoChip(
+        label: label,
+      ),
+    );
+  }
+}
+
+class PlatformActionChip extends StatelessWidget {
+  final Widget label;
+  final Function() onPressed;
+  const PlatformActionChip({
+    Key? key,
+    required this.label,
+    required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return PlatformWidget(
+      material: (context, platform) => ActionChip(
+        label: label,
+        onPressed: onPressed,
+      ),
+      cupertino: (context, platform) => CupertinoButton(
+        child: CupertinoChip(
+          label: label,
         ),
+        onPressed: onPressed,
       ),
     );
   }

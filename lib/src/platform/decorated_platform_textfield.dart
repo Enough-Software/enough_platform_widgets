@@ -13,6 +13,8 @@ class DecoratedPlatformTextField extends StatelessWidget {
   final bool autocorrect;
   final bool obscureText;
   final Function(String value)? onChanged;
+  final Function(String value)? onSubmitted;
+  final Function()? onEditingComplete;
 
   const DecoratedPlatformTextField({
     Key? key,
@@ -26,6 +28,8 @@ class DecoratedPlatformTextField extends StatelessWidget {
     this.autocorrect = true,
     this.obscureText = false,
     this.onChanged,
+    this.onSubmitted,
+    this.onEditingComplete,
   }) : super(key: key);
 
   @override
@@ -42,6 +46,8 @@ class DecoratedPlatformTextField extends StatelessWidget {
         autocorrect: autocorrect,
         obscureText: obscureText,
         onChanged: onChanged,
+        onSubmitted: onSubmitted,
+        onEditingComplete: onEditingComplete,
       ),
       cupertino: (context, platform) => CupertinoTextField(
         key: widgetKey,
@@ -52,9 +58,11 @@ class DecoratedPlatformTextField extends StatelessWidget {
         obscureText: obscureText,
         onChanged: onChanged,
         placeholder: decoration?.labelText ?? decoration?.hintText,
-        prefix: decoration?.prefix,
-        suffix: decoration?.suffix,
+        prefix: decoration?.prefix ?? decoration?.prefixIcon,
+        suffix: decoration?.suffix ?? decoration?.suffixIcon,
         clearButtonMode: OverlayVisibilityMode.editing,
+        onSubmitted: onSubmitted,
+        onEditingComplete: onEditingComplete,
       ),
     );
   }

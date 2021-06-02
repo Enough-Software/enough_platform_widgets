@@ -9,3 +9,4 @@ export 'decorated_platform_textfield.dart';
 export 'platform_sliver_appbar.dart';
 export 'platform_drawer.dart';
 export 'platform_bottom_bar.dart';
+export 'platform_progress_indicator.dart';
