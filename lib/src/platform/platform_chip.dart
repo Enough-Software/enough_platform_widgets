@@ -6,16 +6,25 @@ import '../../cupertino.dart';
 
 class PlatformChip extends StatelessWidget {
   final Widget label;
-  const PlatformChip({Key? key, required this.label}) : super(key: key);
+  final Widget? deleteIcon;
+  final void Function()? onDeleted;
+
+  const PlatformChip(
+      {Key? key, required this.label, this.deleteIcon, this.onDeleted})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PlatformWidget(
       material: (context, platform) => Chip(
         label: label,
+        deleteIcon: deleteIcon,
+        onDeleted: onDeleted,
       ),
       cupertino: (context, platform) => CupertinoChip(
         label: label,
+        deleteIcon: deleteIcon,
+        onDeleted: onDeleted,
       ),
     );
   }
