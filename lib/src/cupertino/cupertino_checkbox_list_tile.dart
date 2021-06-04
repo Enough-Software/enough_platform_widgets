@@ -27,13 +27,19 @@ class CupertinoCheckboxListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = CupertinoTheme.of(context);
-    final highlightColor = checkColor ?? activeColor ?? theme.primaryColor;
+    final highlightColor = checkColor ??
+        ((onChanged != null)
+            ? (activeColor ?? theme.primaryColor)
+            : (theme.barBackgroundColor));
     final box = (value == true)
         ? Icon(
             CupertinoIcons.check_mark_circled_solid,
             color: highlightColor,
           )
-        : Icon(CupertinoIcons.circle);
+        : Icon(
+            CupertinoIcons.circle,
+            color: highlightColor,
+          );
     final padding = contentPadding ?? EdgeInsets.all(8.0);
     final t = title;
     final st = subtitle;

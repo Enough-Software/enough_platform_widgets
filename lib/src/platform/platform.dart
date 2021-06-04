@@ -10,3 +10,6 @@ export 'platform_sliver_appbar.dart';
 export 'platform_drawer.dart';
 export 'platform_bottom_bar.dart';
 export 'platform_progress_indicator.dart';
+export 'platform_text_button_icon.dart';
+export 'platform_dialog_action_button.dart';
+export 'platform_dropdown_button.dart';

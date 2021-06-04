@@ -1,6 +1,7 @@
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class DecoratedPlatformTextField extends StatelessWidget {
   final Key? widgetKey;
@@ -15,6 +16,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
   final Function(String value)? onChanged;
   final Function(String value)? onSubmitted;
   final Function()? onEditingComplete;
+  final List<TextInputFormatter>? inputFormatters;
 
   const DecoratedPlatformTextField({
     Key? key,
@@ -30,6 +32,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
     this.onChanged,
     this.onSubmitted,
     this.onEditingComplete,
+    this.inputFormatters,
   }) : super(key: key);
 
   @override
@@ -41,6 +44,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
         decoration: decoration,
         keyboardType: keyboardType,
         textInputAction: textInputAction,
+        inputFormatters: inputFormatters,
         focusNode: focusNode,
         autofocus: autofocus,
         autocorrect: autocorrect,
@@ -63,6 +67,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
         clearButtonMode: OverlayVisibilityMode.editing,
         onSubmitted: onSubmitted,
         onEditingComplete: onEditingComplete,
+        inputFormatters: inputFormatters,
       ),
     );
   }
