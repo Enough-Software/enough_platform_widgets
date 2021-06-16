@@ -55,7 +55,7 @@ class _CupertinoDropdownButtonState<T>
     return CupertinoButton(
       child: child,
       onPressed: () async {
-        final scrollController = currentValue == null
+        final scrollController = (currentValue == null)
             ? null
             : FixedExtentScrollController(
                 initialItem: currentIndex,
