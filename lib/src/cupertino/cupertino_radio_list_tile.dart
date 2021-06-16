@@ -47,7 +47,7 @@ class CupertinoRadioListTile<T> extends StatelessWidget {
             : st != null
                 ? st
                 : Container();
-    return CupertinoButton(
+    return GestureDetector(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -56,28 +56,38 @@ class CupertinoRadioListTile<T> extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                      width: 1,
-                      color: CupertinoTheme.of(context).barBackgroundColor),
+                    width: 1,
+                    color: CupertinoTheme.of(context).barBackgroundColor,
+                  ),
                 ),
               ),
               child: Padding(
                 padding: padding,
-                child: content,
+                child: CupertinoTheme(
+                  data: CupertinoThemeData(
+                    textTheme: CupertinoTextThemeData(
+                      primaryColor: CupertinoColors.label,
+                      // textStyle: TextStyle(color: CupertinoColors.label),
+                    ),
+                  ),
+                  child: content,
+                ),
               ),
             ),
           ),
-          if (value == groupValue) ...{
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Opacity(
+              opacity: (value == groupValue) ? 1.0 : 0.0,
               child: Icon(
                 CupertinoIcons.check_mark,
                 color: highlightColor,
               ),
             ),
-          }
+          ),
         ],
       ),
-      onPressed: () {
+      onTap: () {
         final callback = onChanged;
         if (callback != null) {
           callback((value != null && toggable) ? null : value);
