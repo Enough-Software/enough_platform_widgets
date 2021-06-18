@@ -17,6 +17,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
   final Function(String value)? onSubmitted;
   final Function()? onEditingComplete;
   final List<TextInputFormatter>? inputFormatters;
+  final bool cupertinoShowLabel;
 
   const DecoratedPlatformTextField({
     Key? key,
@@ -33,6 +34,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
     this.onSubmitted,
     this.onEditingComplete,
     this.inputFormatters,
+    this.cupertinoShowLabel = true,
   }) : super(key: key);
 
   @override
@@ -53,22 +55,41 @@ class DecoratedPlatformTextField extends StatelessWidget {
         onSubmitted: onSubmitted,
         onEditingComplete: onEditingComplete,
       ),
-      cupertino: (context, platform) => CupertinoTextField(
-        key: widgetKey,
-        controller: controller,
-        focusNode: focusNode,
-        autofocus: autofocus,
-        autocorrect: autocorrect,
-        obscureText: obscureText,
-        onChanged: onChanged,
-        placeholder: decoration?.labelText ?? decoration?.hintText,
-        prefix: decoration?.prefix ?? decoration?.prefixIcon,
-        suffix: decoration?.suffix ?? decoration?.suffixIcon,
-        clearButtonMode: OverlayVisibilityMode.editing,
-        onSubmitted: onSubmitted,
-        onEditingComplete: onEditingComplete,
-        inputFormatters: inputFormatters,
-      ),
+      cupertino: (context, platform) {
+        Widget content = CupertinoTextField(
+          key: widgetKey,
+          controller: controller,
+          focusNode: focusNode,
+          autofocus: autofocus,
+          autocorrect: autocorrect,
+          obscureText: obscureText,
+          onChanged: onChanged,
+          placeholder: decoration?.labelText ?? decoration?.hintText,
+          prefix: decoration?.prefix ?? decoration?.prefixIcon,
+          suffix: decoration?.suffix ?? decoration?.suffixIcon,
+          clearButtonMode: OverlayVisibilityMode.editing,
+          onSubmitted: onSubmitted,
+          onEditingComplete: onEditingComplete,
+          inputFormatters: inputFormatters,
+        );
+        final labelText = decoration?.labelText;
+        if (cupertinoShowLabel && labelText != null) {
+          content = Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 8.0),
+                child: Text(
+                  labelText,
+                  style: decoration?.labelStyle,
+                ),
+              ),
+              Expanded(child: content),
+            ],
+          );
+        }
+        return content;
+      },
     );
   }
 }
