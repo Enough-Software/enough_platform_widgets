@@ -10,6 +10,7 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
   final Widget? title;
   final Widget? message;
   final Widget? icon;
+  final EdgeInsets? cupertinoButtonPadding;
 
   PlatformPopupMenuButton({
     Key? key,
@@ -19,6 +20,7 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
     this.title,
     this.message,
     this.icon,
+    this.cupertinoButtonPadding,
   }) : super(key: key);
 
   @override
@@ -54,8 +56,10 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
         );
       },
       cupertino: (context, platform) => CupertinoButton(
-          child: icon ?? child ?? Icon(CupertinoIcons.ellipsis_vertical),
-          onPressed: () => _showActionSheet(context)),
+        padding: cupertinoButtonPadding,
+        child: icon ?? child ?? Icon(CupertinoIcons.ellipsis_vertical),
+        onPressed: () => _showActionSheet(context),
+      ),
     );
   }
 

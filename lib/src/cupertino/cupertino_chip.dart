@@ -4,9 +4,12 @@ class CupertinoChip extends StatelessWidget {
   final Widget label;
   final Widget? deleteIcon;
   final void Function()? onDeleted;
-  const CupertinoChip(
-      {Key? key, required this.label, this.deleteIcon, this.onDeleted})
-      : super(key: key);
+  const CupertinoChip({
+    Key? key,
+    required this.label,
+    this.deleteIcon,
+    this.onDeleted,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
