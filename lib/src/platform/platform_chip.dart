@@ -5,13 +5,13 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import '../../cupertino.dart';
 
 class PlatformChip extends StatelessWidget {
-  final Widget label;
-  final Widget? deleteIcon;
-  final void Function()? onDeleted;
-
   const PlatformChip(
       {Key? key, required this.label, this.deleteIcon, this.onDeleted})
       : super(key: key);
+
+  final Widget label;
+  final Widget? deleteIcon;
+  final void Function()? onDeleted;
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +31,14 @@ class PlatformChip extends StatelessWidget {
 }
 
 class PlatformActionChip extends StatelessWidget {
-  final Widget label;
-  final Function() onPressed;
   const PlatformActionChip({
     Key? key,
     required this.label,
     required this.onPressed,
   }) : super(key: key);
+
+  final Widget label;
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +47,8 @@ class PlatformActionChip extends StatelessWidget {
         label: label,
         onPressed: onPressed,
       ),
-      cupertino: (context, platform) => CupertinoButton(
-        child: CupertinoChip(
-          label: label,
-        ),
+      cupertino: (context, platform) => CupertinoActionChip(
+        label: label,
         onPressed: onPressed,
       ),
     );
