@@ -2,7 +2,7 @@ import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PlatformTextButtonIcon extends StatelessWidget {
+class PlatformFilledButtonIcon extends StatelessWidget {
   final Key? widgetKey;
   final void Function() onPressed;
   final void Function()? onLongPress;
@@ -17,7 +17,7 @@ class PlatformTextButtonIcon extends StatelessWidget {
   final Color? backgroundColor;
 
   /// Important: onLongPress, autofocus, focusNode and clip behavior are not supported for cupertino
-  const PlatformTextButtonIcon({
+  const PlatformFilledButtonIcon({
     Key? key,
     this.widgetKey,
     required this.onPressed,
@@ -34,7 +34,7 @@ class PlatformTextButtonIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformWidget(
-      material: (context, platform) => TextButton.icon(
+      material: (context, platform) => ElevatedButton.icon(
         key: widgetKey,
         onPressed: onPressed,
         onLongPress: onLongPress,
@@ -45,8 +45,7 @@ class PlatformTextButtonIcon extends StatelessWidget {
         clipBehavior: clipBehavior,
         autofocus: autofocus,
       ),
-      cupertino: (context, platform) => CupertinoButton(
-        color: backgroundColor,
+      cupertino: (context, platform) => CupertinoButton.filled(
         padding: EdgeInsets.all(8.0),
         key: widgetKey,
         child: Row(
@@ -56,9 +55,7 @@ class PlatformTextButtonIcon extends StatelessWidget {
               padding: EdgeInsets.only(right: 8.0),
               child: icon,
             ),
-            Expanded(
-              child: label,
-            ),
+            Expanded(child: label),
           ],
         ),
         onPressed: onPressed,

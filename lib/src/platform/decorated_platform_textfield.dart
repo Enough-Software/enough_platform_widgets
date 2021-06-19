@@ -18,6 +18,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
   final Function()? onEditingComplete;
   final List<TextInputFormatter>? inputFormatters;
   final bool cupertinoShowLabel;
+  final TextCapitalization textCapitalization;
 
   const DecoratedPlatformTextField({
     Key? key,
@@ -35,6 +36,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
     this.onEditingComplete,
     this.inputFormatters,
     this.cupertinoShowLabel = true,
+    this.textCapitalization = TextCapitalization.none,
   }) : super(key: key);
 
   @override
@@ -54,6 +56,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
         onChanged: onChanged,
         onSubmitted: onSubmitted,
         onEditingComplete: onEditingComplete,
+        textCapitalization: textCapitalization,
       ),
       cupertino: (context, platform) {
         Widget content = CupertinoTextField(
@@ -71,6 +74,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
           onSubmitted: onSubmitted,
           onEditingComplete: onEditingComplete,
           inputFormatters: inputFormatters,
+          textCapitalization: textCapitalization,
         );
         final labelText = decoration?.labelText;
         if (cupertinoShowLabel && labelText != null) {

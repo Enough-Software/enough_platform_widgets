@@ -2,7 +2,7 @@ import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PlatformIconButton extends StatelessWidget {
+class DensePlatformIconButton extends StatelessWidget {
   final Key? widgetKey;
   final VisualDensity? visualDensity;
   final EdgeInsetsGeometry padding;
@@ -24,7 +24,7 @@ class PlatformIconButton extends StatelessWidget {
   final Widget icon;
   final double iconSize;
 
-  const PlatformIconButton(
+  const DensePlatformIconButton(
       {Key? key,
       this.widgetKey,
       this.iconSize = 24.0,
@@ -74,6 +74,7 @@ class PlatformIconButton extends StatelessWidget {
         constraints: constraints,
       ),
       cupertino: (context, platform) => CupertinoButton(
+        padding: padding,
         key: widgetKey,
         child: icon,
         onPressed: onPressed,
