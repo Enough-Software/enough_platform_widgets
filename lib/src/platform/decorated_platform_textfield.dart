@@ -68,7 +68,9 @@ class DecoratedPlatformTextField extends StatelessWidget {
           autocorrect: autocorrect,
           obscureText: obscureText,
           onChanged: onChanged,
-          placeholder: decoration?.labelText ?? decoration?.hintText,
+          placeholder: cupertinoShowLabel
+              ? decoration?.hintText
+              : decoration?.labelText ?? decoration?.hintText,
           prefix: decoration?.prefix ?? decoration?.prefixIcon,
           suffix: decoration?.suffix ?? decoration?.suffixIcon,
           clearButtonMode: OverlayVisibilityMode.editing,
