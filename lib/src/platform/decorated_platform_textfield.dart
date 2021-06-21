@@ -62,6 +62,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
         Widget content = CupertinoTextField(
           key: widgetKey,
           controller: controller,
+          keyboardType: keyboardType,
           focusNode: focusNode,
           autofocus: autofocus,
           autocorrect: autocorrect,
