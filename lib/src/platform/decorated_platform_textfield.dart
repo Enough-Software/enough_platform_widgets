@@ -81,18 +81,26 @@ class DecoratedPlatformTextField extends StatelessWidget {
         );
         final labelText = decoration?.labelText;
         if (cupertinoShowLabel && labelText != null) {
-          content = Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(right: 8.0),
-                child: Text(
-                  labelText,
-                  style: decoration?.labelStyle,
+          content = Padding(
+            padding: EdgeInsets.symmetric(vertical: 4.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: 8.0),
+                  child: Text(
+                    labelText,
+                    style: decoration?.labelStyle,
+                  ),
                 ),
-              ),
-              Expanded(child: content),
-            ],
+                Expanded(child: content),
+              ],
+            ),
+          );
+        } else {
+          content = Padding(
+            padding: EdgeInsets.symmetric(vertical: 4.0),
+            child: content,
           );
         }
         return content;
