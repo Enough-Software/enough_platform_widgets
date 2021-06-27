@@ -59,6 +59,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
         textCapitalization: textCapitalization,
       ),
       cupertino: (context, platform) {
+        final icon = decoration?.icon;
         Widget content = CupertinoTextField(
           key: widgetKey,
           controller: controller,
@@ -71,7 +72,9 @@ class DecoratedPlatformTextField extends StatelessWidget {
           placeholder: cupertinoShowLabel
               ? decoration?.hintText
               : decoration?.labelText ?? decoration?.hintText,
-          prefix: decoration?.prefix ?? decoration?.prefixIcon,
+          prefix: decoration?.prefix ??
+              decoration?.prefixIcon ??
+              (cupertinoShowLabel ? null : icon),
           suffix: decoration?.suffix ?? decoration?.suffixIcon,
           clearButtonMode: OverlayVisibilityMode.editing,
           onSubmitted: onSubmitted,
@@ -80,19 +83,27 @@ class DecoratedPlatformTextField extends StatelessWidget {
           textCapitalization: textCapitalization,
         );
         final labelText = decoration?.labelText;
-        if (cupertinoShowLabel && labelText != null) {
+        if (cupertinoShowLabel && (labelText != null || icon != null)) {
           content = Padding(
             padding: EdgeInsets.symmetric(vertical: 4.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(right: 8.0),
-                  child: Text(
-                    labelText,
-                    style: decoration?.labelStyle,
+                if (labelText != null) ...{
+                  Padding(
+                    padding: EdgeInsets.only(right: 8.0),
+                    child: Text(
+                      labelText,
+                      style: decoration?.labelStyle,
+                    ),
                   ),
-                ),
+                },
+                if (icon != null) ...{
+                  Padding(
+                    padding: EdgeInsets.only(right: 8.0),
+                    child: icon,
+                  ),
+                },
                 Expanded(child: content),
               ],
             ),

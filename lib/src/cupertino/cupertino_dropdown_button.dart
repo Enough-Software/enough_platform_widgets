@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:enough_platform_widgets/src/platform/platform_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -53,6 +54,7 @@ class _CupertinoDropdownButtonState<T>
         ? widget.hint ?? Icon(CupertinoIcons.arrow_down)
         : children[currentIndex];
     return CupertinoButton(
+      padding: EdgeInsets.all(8.0),
       child: child,
       onPressed: () async {
         final scrollController = (currentValue == null)
@@ -65,30 +67,33 @@ class _CupertinoDropdownButtonState<T>
           builder: (context) => SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.7,
-            child: Container(
-              color: CupertinoTheme.of(context).barBackgroundColor,
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CupertinoButton(
-                          child: Icon(CupertinoIcons.clear_circled),
-                          onPressed: () => Navigator.of(context).pop(false)),
-                      CupertinoButton(
-                          child: Icon(CupertinoIcons.check_mark_circled),
-                          onPressed: () => Navigator.of(context).pop(true)),
-                    ],
-                  ),
-                  Expanded(
-                    child: CupertinoPicker(
-                      itemExtent: widget.itemExtent,
-                      onSelectedItemChanged: (index) => _selectedIndex = index,
-                      scrollController: scrollController,
-                      children: children,
+            child: SafeArea(
+              child: Container(
+                color: CupertinoTheme.of(context).barBackgroundColor,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CupertinoButton(
+                            child: Icon(CommonPlatformIcons.cancel),
+                            onPressed: () => Navigator.of(context).pop(false)),
+                        CupertinoButton(
+                            child: Icon(CommonPlatformIcons.ok),
+                            onPressed: () => Navigator.of(context).pop(true)),
+                      ],
                     ),
-                  ),
-                ],
+                    Expanded(
+                      child: CupertinoPicker(
+                        itemExtent: widget.itemExtent,
+                        onSelectedItemChanged: (index) =>
+                            _selectedIndex = index,
+                        scrollController: scrollController,
+                        children: children,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

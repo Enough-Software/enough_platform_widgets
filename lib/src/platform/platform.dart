@@ -18,3 +18,6 @@ export 'platform_time_picker.dart';
 export 'platform_snack_app.dart';
 export 'platform_icon_button.dart';
 export 'platform_filled_button_icon.dart';
+export 'dialog_helper.dart';
+export 'platform_icons.dart';
+export 'platform_toggle_buttons.dart';
