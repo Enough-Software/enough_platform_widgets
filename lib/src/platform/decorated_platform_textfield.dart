@@ -18,6 +18,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
   final Function()? onEditingComplete;
   final List<TextInputFormatter>? inputFormatters;
   final bool cupertinoShowLabel;
+  final bool cupertinoAlignLabelOnTop;
   final TextCapitalization textCapitalization;
 
   const DecoratedPlatformTextField({
@@ -36,6 +37,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
     this.onEditingComplete,
     this.inputFormatters,
     this.cupertinoShowLabel = true,
+    this.cupertinoAlignLabelOnTop = false,
     this.textCapitalization = TextCapitalization.none,
   }) : super(key: key);
 
@@ -83,7 +85,39 @@ class DecoratedPlatformTextField extends StatelessWidget {
           textCapitalization: textCapitalization,
         );
         final labelText = decoration?.labelText;
-        if (cupertinoShowLabel && (labelText != null || icon != null)) {
+        if (cupertinoShowLabel &&
+            cupertinoAlignLabelOnTop &&
+            labelText != null) {
+          if (icon != null) {
+            content = Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: 8.0),
+                  child: icon,
+                ),
+                Expanded(child: content),
+              ],
+            );
+          }
+          content = Padding(
+            padding: EdgeInsets.symmetric(vertical: 4.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  labelText,
+                  style: decoration?.labelStyle,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 4.0),
+                  child: content,
+                ),
+              ],
+            ),
+          );
+        } else if (cupertinoShowLabel && (labelText != null || icon != null)) {
           content = Padding(
             padding: EdgeInsets.symmetric(vertical: 4.0),
             child: Row(
