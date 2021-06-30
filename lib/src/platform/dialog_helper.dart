@@ -11,7 +11,7 @@ enum DialogActions { ok, cancel, okAndCancel }
 class DialogHelper {
   DialogHelper._();
 
-  /// Asks the suer for confirmation with the given [title] and [query].
+  /// Asks the user for confirmation with the given [title] and [query].
   ///
   /// Specify the [action] in case it's different from the title.
   /// Set [isDangerousAction] to `true` for marking the action as dangerous on Cupertino
