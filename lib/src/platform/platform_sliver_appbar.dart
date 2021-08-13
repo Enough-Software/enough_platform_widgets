@@ -2,6 +2,7 @@ import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// Uses a `SliverAppBar` on material or a `CupertinoSliverNavigationBar` on cupertino
 class PlatformSliverAppBar extends StatelessWidget {
   final Widget? title;
   final Widget? leading;

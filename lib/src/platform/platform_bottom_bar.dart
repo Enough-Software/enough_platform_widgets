@@ -1,6 +1,7 @@
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 
+/// Shows a `BottomAppBar` on materal and a `CupertinoBar` on cupertino
 class PlatformBottomBar extends StatelessWidget {
   final Widget child;
   final double materialElevation;

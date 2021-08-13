@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+/// Provides a scaffold with the option to define a toolbar widget
 class CupertinoPageScaffoldWithToolbar extends StatelessWidget {
   final Widget child;
   final ObstructingPreferredSizeWidget? navigationBar;

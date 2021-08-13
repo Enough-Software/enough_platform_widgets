@@ -1,6 +1,7 @@
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 
+/// Provides a RadioListTile implementation for both material and cupertino
 class PlatformRadioListTile<T> extends StatelessWidget {
   final Key? widgetKey;
   final T? groupValue;

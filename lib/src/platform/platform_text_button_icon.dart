@@ -2,6 +2,7 @@ import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// Simple replacement for `TextButton.icon`
 class PlatformTextButtonIcon extends StatelessWidget {
   final Key? widgetKey;
   final void Function() onPressed;

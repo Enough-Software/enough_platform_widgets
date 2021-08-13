@@ -4,6 +4,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../cupertino.dart';
 
+/// Simple cross-platform `Chip` replacement
 class PlatformChip extends StatelessWidget {
   const PlatformChip(
       {Key? key, required this.label, this.deleteIcon, this.onDeleted})

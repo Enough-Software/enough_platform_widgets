@@ -2,6 +2,7 @@ import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// Replaces the material IconButton with a platform aware solution
 class DensePlatformIconButton extends StatelessWidget {
   final Key? widgetKey;
   final VisualDensity? visualDensity;

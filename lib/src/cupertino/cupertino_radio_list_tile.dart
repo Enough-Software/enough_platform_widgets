@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-/// A simple cupertino style checkbox list tile.
+/// A simple cupertino style readio list tile.
 class CupertinoRadioListTile<T> extends StatelessWidget {
   final T value;
   final T? groupValue;

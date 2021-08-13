@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// A CupertinoApp that also allows to display snack bar messages
 class CupertinoSnackApp extends StatelessWidget {
   const CupertinoSnackApp({
     Key? key,

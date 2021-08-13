@@ -2,6 +2,7 @@ import 'package:cupertino_list_tile/cupertino_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
+/// Uses either a `ListTile` or a `CupertinoListTile`
 class PlatformListTile extends StatelessWidget {
   final Key? widgetKey;
   final Widget? leading;

@@ -1,6 +1,7 @@
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 
+/// A platform aware replacement for the material Stepper widget
 class PlatformStepper extends StatelessWidget {
   final Key? widgetKey;
   final List<Step> steps;

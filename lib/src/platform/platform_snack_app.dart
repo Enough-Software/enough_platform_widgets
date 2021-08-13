@@ -2,6 +2,9 @@ import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// A base app that allows to show SnackBars on cupertino as well
+///
+/// Compare [CupertinoSnackApp]
 class PlatformSnackApp extends StatelessWidget {
   const PlatformSnackApp({
     Key? key,

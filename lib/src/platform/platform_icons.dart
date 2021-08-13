@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-/// Cross platform common icons
+/// Common icons for both cupertino and material
 class CommonPlatformIcons {
   CommonPlatformIcons._();
 

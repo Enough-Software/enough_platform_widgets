@@ -2,6 +2,7 @@ import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+/// Uses an ElevatedButton.filled on material and a CupertinoButton.filled on cupertino
 class PlatformFilledButtonIcon extends StatelessWidget {
   final Key? widgetKey;
   final void Function() onPressed;

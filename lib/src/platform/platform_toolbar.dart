@@ -1,6 +1,7 @@
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 
+/// Provides a toolbar wrapper
 class PlatformToolbar extends StatelessWidget {
   final List<Widget> children;
   const PlatformToolbar({

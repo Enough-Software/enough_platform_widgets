@@ -4,6 +4,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../cupertino.dart';
 
+/// A platform aware DropdownButton
 class PlatformDropdownButton<T> extends StatelessWidget {
   final List<DropdownMenuItem<T>>? items;
   final List<Widget> Function(BuildContext context)? selectedItemBuilder;

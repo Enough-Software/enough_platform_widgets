@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 
+/// A simple cupertino bar that either blurs the background or provides a translucent background
 class CupertinoBar extends StatelessWidget {
   final Widget child;
   final bool blurBackground;

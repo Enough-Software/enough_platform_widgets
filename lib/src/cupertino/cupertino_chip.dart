@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+/// A cupertino version of the material `Chip` widget
 class CupertinoChip extends StatelessWidget {
   final Widget label;
   final Widget? deleteIcon;

@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+/// Provides a cross platform replacement for the material TextField
 class DecoratedPlatformTextField extends StatelessWidget {
   final Key? widgetKey;
 

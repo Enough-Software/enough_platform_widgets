@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
+/// Provides a platform aware replacement for the material PopupMenuButton
 class PlatformPopupMenuButton<T> extends StatelessWidget {
   final Widget? child;
   final void Function(T value)? onSelected;
