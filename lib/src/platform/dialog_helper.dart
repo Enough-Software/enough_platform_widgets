@@ -49,7 +49,7 @@ class DialogHelper {
       final theme = Theme.of(context);
       var actionButtonStyle = theme.textButtonTheme.style;
       TextStyle? actionTextStyle;
-      if (isDangerousAction == true) {
+      if (isDangerousAction) {
         actionButtonStyle = TextButton.styleFrom(
             backgroundColor: Colors.red, onSurface: Colors.white);
         actionTextStyle = theme.textTheme.button!.copyWith(color: Colors.white);

@@ -13,6 +13,7 @@ export 'platform_bottom_bar.dart';
 export 'platform_progress_indicator.dart';
 export 'platform_text_button_icon.dart';
 export 'platform_dialog_action_button.dart';
+export 'platform_dialog_action_text.dart';
 export 'platform_dropdown_button.dart';
 export 'platform_time_picker.dart';
 export 'platform_snack_app.dart';
