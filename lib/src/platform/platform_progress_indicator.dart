@@ -5,7 +5,16 @@ import 'package:flutter/material.dart';
 
 /// Uses a `CircularProgressIndicator` on material and a `CupertinoActivityIndicator` - or the 'CupertinoProgressBar' from the `cupertino_progress_bar` package when the given value is not null - on cupertino
 class PlatformProgressIndicator extends StatelessWidget {
+  /// If non-null, the value of this progress indicator.
+  ///
+  /// A value of 0.0 means no progress and 1.0 means that progress is complete.
+  ///
+  /// If null, this progress indicator is indeterminate, which means the
+  /// indicator displays a predetermined animation that does not indicate how
+  /// much actual progress is being made.
   final double? value;
+
+  /// Creates a new progress indicator with the optional [value].
   const PlatformProgressIndicator({Key? key, this.value}) : super(key: key);
 
   @override
