@@ -1,14 +1,14 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
+import 'platform_info.dart';
 
 /// Common icons for both cupertino and material
 class CommonPlatformIcons {
   CommonPlatformIcons._();
 
-  static final isCupertino = Platform.isIOS || Platform.isMacOS;
+  static final isCupertino = PlatformInfo.isCupertino;
 
   static IconData get ok =>
       isCupertino ? CupertinoIcons.check_mark : Icons.done;

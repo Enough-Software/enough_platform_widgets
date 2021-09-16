@@ -1,3 +1,4 @@
+export 'platform_info.dart';
 export 'platform_chip.dart';
 export 'platform_list_tile.dart';
 export 'platform_popup_button.dart';
