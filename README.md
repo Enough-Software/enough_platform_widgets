@@ -49,6 +49,7 @@ Currently the following cupertino widgets are provided:
 * `CupertinoPageScaffoldWithToolbar` provides a scaffold with the option to define a toolbar widget
 * `CupertinoPageWithBar` is a simple page with a bar that can be aligned top/bottom/left/right
 * `CupertinoRadioListTile` provides a simple cupertino style radio list tile
+* `CupertinoSearchFlowTextField` displays a CupertinoSearchTextField with the expected UX flow that switches to a full-screen experience once editing starts
 * `CupertinoSnackApp` is a CupertinoApp that also allows to display snack bar messages
 * `CupertinoToolbar` a simple wrapper for a cupertino toolbar widget 
 

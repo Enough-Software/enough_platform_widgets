@@ -9,3 +9,4 @@ export 'cupertino_dropdown_button.dart';
 export 'cupertino_snack_app.dart';
 export 'cupertino_multiple_segmented.dart';
 export 'cupertino_inkwell.dart';
+export 'cupertino_search.dart';
