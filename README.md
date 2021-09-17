@@ -22,6 +22,7 @@ Platform widgets use their material or cupertino equivalent based on the chosen 
 * `DropdownButton` is a replacement for the material `DropdownButton`
 * `PlatformFilledButtonIcon` uses an `ElevatedButton.filled` on material and a `CupertinoButton.filled` on cupertino
 * `DensePlatformIconButton` replaces the material `IconButon`
+* `PlatformInkWell` is a rectangular area of a that responds to touch and is based either on `InkWell` or on `CupertinoInkWell`
 * `PlatformListTile` provides either a `ListTile` or a `CupertinoListTile`
 * `PlatformPageScaffold` provides a `PlatformScaffold` with the additional option to define a bottom bar.
 * `PlatformPopupButton` uses an action sheet on cupertino and a popup button on material.
@@ -43,6 +44,7 @@ Currently the following cupertino widgets are provided:
 * `CupertinoCheckboxListTile` provides a simple cupertino style checkbox list tile
 * `CupertinoChip` is a cupertino version of the material `Chip` widget
 * `CupertinoDropdownButton` maps the basic dropdown feature to a `CupertinoPicker`
+* `CupertinoInkWell` is a rectangular area of a that responds to touch
 * `CupertinoMultipleSegmentedControl` is like the `CupertinoSegmentedControl` but it allows to select several segments at once
 * `CupertinoPageScaffoldWithToolbar` provides a scaffold with the option to define a toolbar widget
 * `CupertinoPageWithBar` is a simple page with a bar that can be aligned top/bottom/left/right
