@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-/// A platform aware dialog action
+/// A platform aware dialog action text
 class PlatformDialogActionText extends StatelessWidget {
   final String text;
   final Function()? onPressed;
