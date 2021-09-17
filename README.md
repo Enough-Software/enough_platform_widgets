@@ -19,6 +19,7 @@ Platform widgets use their material or cupertino equivalent based on the chosen 
 * `PlatformCheckboxListTile` is a platform aware simple checkbox list tile
 * `PlatformChip` a simple cross-platform `Chip` replacement
 * `PlatformDialogActionButton` is a platform aware dialog action
+* `PlatformDialogActionText` provides a platform aware dialog action text
 * `DropdownButton` is a replacement for the material `DropdownButton`
 * `PlatformFilledButtonIcon` uses an `ElevatedButton.filled` on material and a `CupertinoButton.filled` on cupertino
 * `DensePlatformIconButton` replaces the material `IconButon`
@@ -57,7 +58,7 @@ Currently the following cupertino widgets are provided:
 Add this as a dependency to your `pubspec.yaml`:
 ```
 dependencies:
-  enough_platform_widgets: ^0.1.0
+  enough_platform_widgets: ^0.2.0
 ```
 
 The latest version or `enough_platform_widgets` is [![enough_platform_widgets version](https://img.shields.io/pub/v/enough_platform_widgets.svg)](https://pub.dartlang.org/packages/enough_platform_widgets).

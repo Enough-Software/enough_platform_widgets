@@ -1,6 +1,6 @@
 name: enough_platform_widgets
 description: Useful platform aware widgets to bring a Material app to Cupertino.
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/Enough-Software/enough_platform_widgets
 
 environment:
