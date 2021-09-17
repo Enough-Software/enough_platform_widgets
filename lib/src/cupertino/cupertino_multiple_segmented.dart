@@ -368,6 +368,7 @@ class _SegmentedControlState extends State<CupertinoMultipleSegmentedControl>
 
       final TextStyle textStyle = DefaultTextStyle.of(context).style.copyWith(
             color: getTextColor(i),
+            fontSize: 12,
           );
       final IconThemeData iconTheme = IconThemeData(
         color: getTextColor(i),
@@ -386,7 +387,9 @@ class _SegmentedControlState extends State<CupertinoMultipleSegmentedControl>
               button: true,
               //inMutuallyExclusiveGroup: true,
               selected: selected,
-              child: widget.children[i],
+              child: Center(
+                child: widget.children[i],
+              ),
             ),
           ),
         ),
