@@ -40,8 +40,18 @@ class _CupertinoDropdownButtonState<T>
     }
     final builder = widget.selectedItemBuilder;
     final children = (builder != null)
-        ? builder(context).map((widget) => FittedBox(child: widget)).toList()
-        : itms.map((itm) => FittedBox(child: itm.child)).toList();
+        ? builder(context)
+            .map((widget) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: FittedBox(child: widget),
+                ))
+            .toList()
+        : itms
+            .map((itm) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: FittedBox(child: itm.child),
+                ))
+            .toList();
     final currentValue = widget.value;
 
     final currentIndex =
