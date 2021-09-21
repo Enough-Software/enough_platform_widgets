@@ -1,3 +1,6 @@
+## 0.2.2
+- Removes dependency on `dart:io` to become compatible with flutter web.
+
 ## 0.2.1
 - Removes dependency on `dart:io` to become compatible with flutter web.
 - Add `CommonPlatformIcons.info`
