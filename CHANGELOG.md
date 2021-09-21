@@ -1,3 +1,8 @@
+## 0.2.1
+- Removes dependency on `dart:io` to become compatible with flutter web.
+- Add `CommonPlatformIcons.info`
+- Improve `PlatformDropdownButton` rendering on cupertino 
+
 ## 0.2.0
 
 * New widgets:
