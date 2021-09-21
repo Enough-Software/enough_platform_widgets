@@ -41,11 +41,17 @@ class _CupertinoDropdownButtonState<T>
     final builder = widget.selectedItemBuilder;
     final children = (builder != null)
         ? builder(context)
-            .map((widget) => Center(
-                  child: widget,
+            .map((widget) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: FittedBox(child: widget),
                 ))
             .toList()
-        : itms.map((itm) => Center(child: itm.child)).toList();
+        : itms
+            .map((itm) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: FittedBox(child: itm.child),
+                ))
+            .toList();
     final currentValue = widget.value;
 
     final currentIndex =
@@ -55,7 +61,7 @@ class _CupertinoDropdownButtonState<T>
         : children[currentIndex];
     return CupertinoButton(
       padding: EdgeInsets.all(8.0),
-      child: child,
+      child: FittedBox(child: child),
       onPressed: () async {
         final scrollController = (currentValue == null)
             ? null
