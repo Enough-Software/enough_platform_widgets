@@ -1,5 +1,4 @@
-import 'dart:io';
-
+import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +17,7 @@ Future<TimeOfDay?> showPlatformTimePicker({
   String? helpText,
   RouteSettings? routeSettings,
 }) async {
-  if (Platform.isIOS || Platform.isMacOS) {
+  if (PlatformInfo.isCupertino) {
     final initialDateTime =
         DateTime(1, 1, 1, initialTime.hour, initialTime.minute);
     DateTime? pickedTime;
@@ -104,7 +103,7 @@ Future<DateTime?> showPlatformDatePicker({
   String? fieldHintText,
   String? fieldLabelText,
 }) async {
-  if (Platform.isIOS || Platform.isMacOS) {
+  if (PlatformInfo.isCupertino) {
     DateTime? pickedTime;
     final result = await showCupertinoModalPopup<bool>(
       context: context,
