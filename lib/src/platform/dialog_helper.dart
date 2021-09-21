@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +22,7 @@ class DialogHelper {
     bool isDangerousAction = false,
     String? cancelActionText,
   }) {
-    if (Platform.isIOS || Platform.isMacOS) {
+    if (PlatformInfo.isCupertino) {
       return showCupertinoDialog<bool>(
         builder: (context) => CupertinoAlertDialog(
           title: Text(title),
@@ -131,7 +129,7 @@ class DialogHelper {
         ),
       },
     ];
-    if (Platform.isIOS || Platform.isMacOS) {
+    if (PlatformInfo.isCupertino) {
       return showCupertinoDialog(
         context: context,
         builder: (context) => CupertinoAlertDialog(
