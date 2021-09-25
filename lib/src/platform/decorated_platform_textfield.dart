@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 
 /// Provides a cross platform replacement for the material TextField
 class DecoratedPlatformTextField extends StatelessWidget {
+  /// The key for the generated platform text field
   final Key? widgetKey;
 
   /// Controls the text being edited.
@@ -370,8 +371,14 @@ class DecoratedPlatformTextField extends StatelessWidget {
   /// {@endtemplate}
   final String? restorationId;
 
+  /// Should the label be shown at all on cupertino?
   final bool cupertinoShowLabel;
+
+  /// When the label is shown in cupertino, should it be rathered placed on top (instead of before) the input field?
   final bool cupertinoAlignLabelOnTop;
+
+  /// When the suffix should be shown on cupertino
+  final OverlayVisibilityMode cupertinoSuffixMode;
 
   const DecoratedPlatformTextField({
     Key? key,
@@ -428,6 +435,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
     this.restorationId,
     this.cupertinoShowLabel = true,
     this.cupertinoAlignLabelOnTop = false,
+    this.cupertinoSuffixMode = OverlayVisibilityMode.always,
   }) : super(key: key);
 
   @override
@@ -505,6 +513,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
               decoration?.prefixIcon ??
               (cupertinoShowLabel ? null : icon),
           suffix: decoration?.suffix ?? decoration?.suffixIcon,
+          suffixMode: cupertinoSuffixMode,
           clearButtonMode: OverlayVisibilityMode.editing,
           onSubmitted: onSubmitted,
           onEditingComplete: onEditingComplete,
