@@ -43,9 +43,11 @@ class CupertinoSearchFlowTextField extends StatefulWidget {
 class _CupertinoSearchFlowTextFieldState
     extends State<CupertinoSearchFlowTextField> {
   final FocusNode _focusNode = FocusNode();
+  late TextEditingController _controller;
 
   @override
   void initState() {
+    _controller = widget.controller ?? TextEditingController();
     _focusNode.addListener(() {
       if (_focusNode.hasFocus) {
         _focusNode.unfocus();
@@ -61,7 +63,7 @@ class _CupertinoSearchFlowTextFieldState
               },
               cancelText: widget.cancelText,
               placeholder: widget.placeholder,
-              controller: widget.controller,
+              controller: _controller,
               title: widget.title,
             ),
           ),
@@ -74,6 +76,10 @@ class _CupertinoSearchFlowTextFieldState
   @override
   void dispose() {
     _focusNode.dispose();
+    if (widget.controller == null) {
+      // only dispose when managed by this widget
+      _controller.dispose();
+    }
     super.dispose();
   }
 
@@ -98,7 +104,7 @@ class _CupertinoSearchPage extends StatelessWidget {
   final String? placeholder;
   final String? title;
   final String cancelText;
-  final TextEditingController? controller;
+  final TextEditingController controller;
 
   const _CupertinoSearchPage({
     Key? key,
@@ -106,7 +112,7 @@ class _CupertinoSearchPage extends StatelessWidget {
     required this.onSubmitted,
     required this.cancelText,
     this.placeholder,
-    this.controller,
+    required this.controller,
     this.title,
   }) : super(key: key);
 
@@ -148,13 +154,14 @@ class _CupertinoSearchPage extends StatelessWidget {
                         placeholderStyle: const TextStyle(
                             color: CupertinoColors.secondaryLabel),
                         suffix: CupertinoButton(
+                          minSize: 10,
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 2),
                           child: Icon(
                             CupertinoIcons.xmark_circle_fill,
                             size: iconSize,
                             color: CupertinoColors.secondaryLabel,
                           ),
-                          onPressed: () => controller?.text = '',
+                          onPressed: () => controller.text = '',
                         ),
                         suffixMode: OverlayVisibilityMode.editing,
                         decoration: BoxDecoration(
