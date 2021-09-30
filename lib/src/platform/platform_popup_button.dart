@@ -58,7 +58,7 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
       },
       cupertino: (context, platform) => CupertinoButton(
         padding: cupertinoButtonPadding,
-        child: icon ?? child ?? Icon(CupertinoIcons.ellipsis_vertical),
+        child: icon ?? child ?? Icon(CupertinoIcons.ellipsis_circle),
         onPressed: () => _showActionSheet(context),
       ),
     );
