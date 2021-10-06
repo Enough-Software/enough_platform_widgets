@@ -90,7 +90,6 @@ class _CupertinoSearchFlowTextFieldState
       child: CupertinoSearchTextField(
         focusNode: _focusNode,
         controller: widget.controller,
-        enabled: widget.enabled,
         onSubmitted: widget.onSubmitted,
         onChanged: widget.onSubmitted,
       ),
