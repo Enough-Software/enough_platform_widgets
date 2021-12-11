@@ -10,9 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_platform_widgets: ^1.9.5
+  flutter_platform_widgets: 1.10.0
   cupertino_list_tile: ^0.2.0
-  cupertino_stepper: ^0.2.0
+  cupertino_stepper:
+    git:
+      url: https://github.com/rstorr/cupertino_stepper
   cupertino_progress_bar: ^0.2.0
 
 dev_dependencies:
