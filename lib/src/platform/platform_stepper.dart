@@ -11,9 +11,7 @@ class PlatformStepper extends StatelessWidget {
   final void Function(int)? onStepTapped;
   final void Function()? onStepContinue;
   final void Function()? onStepCancel;
-  final Widget Function(BuildContext,
-      {void Function()? onStepContinue,
-      void Function()? onStepCancel})? controlsBuilder;
+  final Widget Function(BuildContext, ControlsDetails)? controlsBuilder;
 
   const PlatformStepper(
       {Key? key,
