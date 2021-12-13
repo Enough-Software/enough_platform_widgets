@@ -1,4 +1,4 @@
-import 'package:enough_platform_widgets/enough_platform_widgets.dart';
+import 'package:enough_platform_widgets/src/cupertino/cupertino_multiple_segmented.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 

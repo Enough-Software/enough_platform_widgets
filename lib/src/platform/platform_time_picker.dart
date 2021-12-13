@@ -81,7 +81,7 @@ Future<TimeOfDay?> showPlatformTimePicker({
 ///
 /// On iOS and macOS a CupertinoDatePicker is used. The [builder], [initialEntryMode], [helpText], [useRootNavigator] and [rootSettings] parameters are ignored there.
 /// On other platforms the Material [showTimePicker] method is called with the given parameters.
-Future<DateTime?> showPlatformDatePicker({
+Future<DateTime?> showPlatformSpecificDatePicker({
   required BuildContext context,
   required DateTime initialDate,
   required DateTime firstDate,
