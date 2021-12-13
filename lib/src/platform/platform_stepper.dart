@@ -1,5 +1,6 @@
-import 'package:enough_platform_widgets/enough_platform_widgets.dart';
+import 'package:cupertino_stepper/cupertino_stepper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 /// A platform aware replacement for the material Stepper widget
 class PlatformStepper extends StatelessWidget {
@@ -11,9 +12,7 @@ class PlatformStepper extends StatelessWidget {
   final void Function(int)? onStepTapped;
   final void Function()? onStepContinue;
   final void Function()? onStepCancel;
-  final Widget Function(BuildContext,
-      {void Function()? onStepContinue,
-      void Function()? onStepCancel})? controlsBuilder;
+  final Widget Function(BuildContext, ControlsDetails)? controlsBuilder;
 
   const PlatformStepper(
       {Key? key,
