@@ -1,3 +1,7 @@
+## 0.3.0
+- Support Flutter 2.8.x
+- Align with flutter_platform_widgets latest releases
+
 ## 0.2.2
 - Removes dependency on `dart:io` to become compatible with flutter web.
 

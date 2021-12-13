@@ -1,6 +1,6 @@
 name: enough_platform_widgets
 description: Useful platform aware widgets to bring a Material app to Cupertino.
-version: 0.2.2
+version: 0.3.0
 homepage: https://github.com/Enough-Software/enough_platform_widgets
 
 environment:
@@ -10,9 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_platform_widgets: ^1.9.5
-  cupertino_list_tile: ^0.2.0
-  cupertino_stepper: ^0.2.0
+  flutter_platform_widgets: ^1.11.1
+  cupertino_list_tile: ^0.2.1
+  cupertino_stepper: ^0.2.1
   cupertino_progress_bar: ^0.2.0
 
 dev_dependencies:
