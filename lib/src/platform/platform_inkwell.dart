@@ -21,6 +21,7 @@ class PlatformInkWell extends StatelessWidget {
     this.customBorder,
     this.focusColor,
     this.hoverColor,
+    this.pressColor,
     this.highlightColor,
     this.overlayColor,
     this.splashColor,
@@ -173,6 +174,19 @@ class PlatformInkWell extends StatelessWidget {
   ///  * [splashFactory], which defines the appearance of the splash.
   final Color? hoverColor;
 
+  /// The color of the ink response when the parent widget is pressed.
+  ///
+  /// See also:
+  ///
+  ///  * [highlightShape], the shape of the focus, hover, and pressed
+  ///    highlights.
+  ///  * [highlightColor], the color of the pressed highlight.
+  ///  * [focusColor], the color of the focus highlight.
+  ///  * [hoverColor], the color of the hover highlight.
+  ///  * [splashColor], the color of the splash.
+  ///  * [splashFactory], which defines the appearance of the splash.
+  final Color? pressColor;
+
   /// The highlight color of the ink response when pressed. If this property is
   /// null then the highlight color of the theme, [ThemeData.highlightColor],
   /// will be used.
@@ -311,6 +325,7 @@ class PlatformInkWell extends StatelessWidget {
         mouseCursor: mouseCursor,
         focusColor: focusColor,
         hoverColor: hoverColor,
+        pressColor: pressColor ?? highlightColor,
         borderRadius: borderRadius,
         customBorder: customBorder,
         excludeFromSemantics: excludeFromSemantics,
