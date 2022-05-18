@@ -1,6 +1,13 @@
+## 0.4.0
+- Thanks to [fotiDim](https://github.com/fotiDim) `PlatformInkWell.pressColor` is now available to add tap effects visible on iOS.
+- `PlatformStepper` now supports specifying the `controlBuilder`. 
+- Add some additional `CommonPlatformIcons`.
+- Tested with Flutter 3.0.0.
+- Align with flutter_platform_widgets latest releases.
+
 ## 0.3.0
-- Support Flutter 2.8.x
-- Align with flutter_platform_widgets latest releases
+- Support Flutter 2.8.x.
+- Align with flutter_platform_widgets latest releases.
 
 ## 0.2.2
 - Removes dependency on `dart:io` to become compatible with flutter web.
