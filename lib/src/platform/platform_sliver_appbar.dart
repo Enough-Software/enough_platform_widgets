@@ -13,6 +13,7 @@ class PlatformSliverAppBar extends StatelessWidget {
   final List<Widget>? actions;
   final String? previousPageTitle;
   final Widget? flexibleSpace;
+  final bool cupertinoTransitionBetweenRoutes;
 
   const PlatformSliverAppBar({
     Key? key,
@@ -25,6 +26,7 @@ class PlatformSliverAppBar extends StatelessWidget {
     this.actions,
     this.previousPageTitle,
     this.flexibleSpace,
+    this.cupertinoTransitionBetweenRoutes = false,
   }) : super(key: key);
 
   @override
@@ -41,13 +43,14 @@ class PlatformSliverAppBar extends StatelessWidget {
         actions: actions,
       ),
       cupertino: (context, platform) {
-        final trailing = (actions == null)
+        final actions = this.actions;
+        final trailing = (actions == null || actions.isEmpty)
             ? null
-            : (actions?.length == 1)
-                ? actions!.first
+            : (actions.length == 1)
+                ? actions.first
                 : Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: actions!,
+                    mainAxisSize: MainAxisSize.min,
+                    children: actions,
                   );
         return CupertinoSliverNavigationBar(
           stretch: stretch,
@@ -55,6 +58,7 @@ class PlatformSliverAppBar extends StatelessWidget {
           leading: leading,
           previousPageTitle: previousPageTitle,
           trailing: trailing,
+          transitionBetweenRoutes: cupertinoTransitionBetweenRoutes,
         );
       },
     );
