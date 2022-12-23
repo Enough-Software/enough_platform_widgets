@@ -58,7 +58,7 @@ Currently the following cupertino widgets are provided:
 Add this as a dependency to your `pubspec.yaml`:
 ```
 dependencies:
-  enough_platform_widgets: ^0.2.0
+  enough_platform_widgets: ^0.5.0
 ```
 
 The latest version or `enough_platform_widgets` is [![enough_platform_widgets version](https://img.shields.io/pub/v/enough_platform_widgets.svg)](https://pub.dartlang.org/packages/enough_platform_widgets).
