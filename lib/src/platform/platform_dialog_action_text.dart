@@ -31,9 +31,11 @@ class PlatformDialogActionText extends StatelessWidget {
         TextStyle? actionTextStyle;
         if (isDestructiveAction) {
           actionButtonStyle = TextButton.styleFrom(
-              backgroundColor: Colors.red, onSurface: Colors.white);
-          actionTextStyle =
-              theme.textTheme.button!.copyWith(color: Colors.white);
+            backgroundColor: Colors.red,
+            disabledForegroundColor: Colors.white,
+            onSurface: Colors.white,
+          );
+          actionTextStyle = theme.textTheme.button!.copyWith(color: Colors.white);
         }
         return TextButton(
           child: Text(text.toUpperCase(), style: actionTextStyle),
