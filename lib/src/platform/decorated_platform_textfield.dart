@@ -133,7 +133,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
   /// If not set, select all and paste will default to be enabled. Copy and cut
   /// will be disabled if [obscureText] is true. If [readOnly] is true,
   /// paste and cut will be disabled regardless.
-  final ToolbarOptions? toolbarOptions;
+  final Widget Function(BuildContext, EditableTextState)? contextMenuBuilder;
 
   /// {@macro flutter.widgets.editableText.showCursor}
   final bool? showCursor;
@@ -395,7 +395,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
     this.textAlignVertical,
     this.textDirection,
     this.readOnly = false,
-    this.toolbarOptions,
+    this.contextMenuBuilder,
     this.showCursor,
     this.autofocus = false,
     this.obscuringCharacter = '•',
@@ -463,7 +463,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
         textAlignVertical: textAlignVertical,
         textDirection: textDirection,
         readOnly: readOnly,
-        toolbarOptions: toolbarOptions,
+        contextMenuBuilder: contextMenuBuilder,
         showCursor: showCursor,
         obscuringCharacter: obscuringCharacter,
         smartDashesType: smartDashesType,
@@ -506,12 +506,8 @@ class DecoratedPlatformTextField extends StatelessWidget {
           obscureText: obscureText,
           onChanged: onChanged,
           keyboardAppearance: keyboardAppearance,
-          placeholder: cupertinoShowLabel
-              ? decoration?.hintText
-              : decoration?.labelText ?? decoration?.hintText,
-          prefix: decoration?.prefix ??
-              decoration?.prefixIcon ??
-              (cupertinoShowLabel ? null : icon),
+          placeholder: cupertinoShowLabel ? decoration?.hintText : decoration?.labelText ?? decoration?.hintText,
+          prefix: decoration?.prefix ?? decoration?.prefixIcon ?? (cupertinoShowLabel ? null : icon),
           suffix: decoration?.suffix ?? decoration?.suffixIcon,
           suffixMode: cupertinoSuffixMode,
           clearButtonMode: OverlayVisibilityMode.editing,
@@ -525,7 +521,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
           textAlign: textAlign,
           textAlignVertical: textAlignVertical,
           readOnly: readOnly,
-          toolbarOptions: toolbarOptions,
+          contextMenuBuilder: contextMenuBuilder,
           showCursor: showCursor,
           obscuringCharacter: obscuringCharacter,
           smartDashesType: smartDashesType,
@@ -552,9 +548,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
           restorationId: restorationId,
         );
         final labelText = decoration?.labelText;
-        if (cupertinoShowLabel &&
-            cupertinoAlignLabelOnTop &&
-            labelText != null) {
+        if (cupertinoShowLabel && cupertinoAlignLabelOnTop && labelText != null) {
           if (icon != null) {
             content = Row(
               mainAxisAlignment: MainAxisAlignment.start,

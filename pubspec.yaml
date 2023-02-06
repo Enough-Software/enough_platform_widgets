@@ -8,12 +8,11 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  cupertino_list_tile: ^0.2.1
   cupertino_stepper: ^0.2.1
   cupertino_progress_bar: ^0.2.0
   flutter:
     sdk: flutter
-  flutter_platform_widgets: ^2.0.0
+  flutter_platform_widgets: ^3.0.0
 
 dev_dependencies:
   flutter_test:
