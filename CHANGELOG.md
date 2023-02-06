@@ -1,5 +1,8 @@
+## 0.6.0
+- Thanks again to [Brendan](https://github.com/definitelyme) enough_platform_widgets is now compatible with Flutter 3.7.
+
 ## 0.5.0
-- Thanks to [Brendan](https://github.com/definitelyme) enough_platform_widgets is now compatible with Flutter 3.3 .
+- Thanks to [Brendan](https://github.com/definitelyme) enough_platform_widgets is now compatible with Flutter 3.3.
 
 ## 0.4.0
 - Thanks to [fotiDim](https://github.com/fotiDim) `PlatformInkWell.pressColor` is now available to add tap effects visible on iOS.

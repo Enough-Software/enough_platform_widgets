@@ -4,7 +4,6 @@ More cross platform widgets for Flutter developers.
 
 Based on these great packages:
 * [flutter_platform_widgets](https://pub.dev/packages/flutter_platform_widgets)
-* [cupertino_list_tile](https://pub.dev/packages/cupertino_list_tile)
 * [cupertino_stepper](cupertino_stepper)
 
 Licensed commercially friendly under the [MIT License](LICENSE).
@@ -15,14 +14,14 @@ Platform widgets use their material or cupertino equivalent based on the chosen 
 
 * `DecoratedPlatformTextField` provides a cross platform replacement for the material `TextField`
 * `DialogHelper` helps to show platform specific dialogs
-* `PlatformBottomBar` shows a `BottomAppBar` on materal and a `CupertinoBar` on cupertino
+* `PlatformBottomBar` shows a `BottomAppBar` on material and a `CupertinoBar` on cupertino
 * `PlatformCheckboxListTile` is a platform aware simple checkbox list tile
 * `PlatformChip` a simple cross-platform `Chip` replacement
 * `PlatformDialogActionButton` is a platform aware dialog action
 * `PlatformDialogActionText` provides a platform aware dialog action text
 * `DropdownButton` is a replacement for the material `DropdownButton`
 * `PlatformFilledButtonIcon` uses an `ElevatedButton.filled` on material and a `CupertinoButton.filled` on cupertino
-* `DensePlatformIconButton` replaces the material `IconButon`
+* `DensePlatformIconButton` replaces the material `IconButton`
 * `PlatformInkWell` is a rectangular area of a that responds to touch and is based either on `InkWell` or on `CupertinoInkWell`
 * `PlatformListTile` provides either a `ListTile` or a `CupertinoListTile`
 * `PlatformPageScaffold` provides a `PlatformScaffold` with the additional option to define a bottom bar.

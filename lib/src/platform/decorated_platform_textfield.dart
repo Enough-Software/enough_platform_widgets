@@ -199,7 +199,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
   /// See also:
   ///
   ///  * [TextInputAction.next] and [TextInputAction.previous], which
-  ///    automatically shift the focus to the next/previous focusable item when
+  ///    automatically shift the focus to the next/previous focus-able item when
   ///    the user is done editing.
   final ValueChanged<String>? onSubmitted;
 
@@ -250,8 +250,6 @@ class DecoratedPlatformTextField extends StatelessWidget {
   /// The appearance of the keyboard.
   ///
   /// This setting is only honored on iOS devices.
-  ///
-  /// If unset, defaults to the brightness of [ThemeData.primaryColorBrightness].
   final Brightness? keyboardAppearance;
 
   /// {@macro flutter.widgets.editableText.scrollPadding}
@@ -506,8 +504,12 @@ class DecoratedPlatformTextField extends StatelessWidget {
           obscureText: obscureText,
           onChanged: onChanged,
           keyboardAppearance: keyboardAppearance,
-          placeholder: cupertinoShowLabel ? decoration?.hintText : decoration?.labelText ?? decoration?.hintText,
-          prefix: decoration?.prefix ?? decoration?.prefixIcon ?? (cupertinoShowLabel ? null : icon),
+          placeholder: cupertinoShowLabel
+              ? decoration?.hintText
+              : decoration?.labelText ?? decoration?.hintText,
+          prefix: decoration?.prefix ??
+              decoration?.prefixIcon ??
+              (cupertinoShowLabel ? null : icon),
           suffix: decoration?.suffix ?? decoration?.suffixIcon,
           suffixMode: cupertinoSuffixMode,
           clearButtonMode: OverlayVisibilityMode.editing,
@@ -548,7 +550,9 @@ class DecoratedPlatformTextField extends StatelessWidget {
           restorationId: restorationId,
         );
         final labelText = decoration?.labelText;
-        if (cupertinoShowLabel && cupertinoAlignLabelOnTop && labelText != null) {
+        if (cupertinoShowLabel &&
+            cupertinoAlignLabelOnTop &&
+            labelText != null) {
           if (icon != null) {
             content = Row(
               mainAxisAlignment: MainAxisAlignment.start,

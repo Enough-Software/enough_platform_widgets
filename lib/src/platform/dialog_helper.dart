@@ -29,7 +29,9 @@ class DialogHelper {
           content: Text(query),
           actions: [
             CupertinoDialogAction(
-              child: cancelActionText != null ? Text(cancelActionText) : Icon(CupertinoIcons.clear),
+              child: cancelActionText != null
+                  ? Text(cancelActionText)
+                  : Icon(CupertinoIcons.clear),
               onPressed: () => Navigator.of(context).pop(false),
             ),
             CupertinoDialogAction(
@@ -49,9 +51,10 @@ class DialogHelper {
         actionButtonStyle = TextButton.styleFrom(
           backgroundColor: Colors.red,
           disabledForegroundColor: Colors.white,
-          onSurface: Colors.white,
+          foregroundColor: Colors.white,
         );
-        actionTextStyle = theme.textTheme.button!.copyWith(color: Colors.white);
+        actionTextStyle =
+            theme.textTheme.labelLarge?.copyWith(color: Colors.white);
       }
 
       return showDialog<bool>(
@@ -60,7 +63,9 @@ class DialogHelper {
           content: Text(query),
           actions: [
             TextButton(
-              child: cancelActionText != null ? PlatformText(cancelActionText) : Icon(Icons.cancel),
+              child: cancelActionText != null
+                  ? PlatformText(cancelActionText)
+                  : Icon(Icons.cancel),
               onPressed: () => Navigator.of(context).pop(false),
             ),
             TextButton(
@@ -87,7 +92,10 @@ class DialogHelper {
     String? cancelActionText,
   }) {
     return showWidgetDialog(context, Text(text),
-        title: title, actions: actions, okActionText: okActionText, cancelActionText: cancelActionText);
+        title: title,
+        actions: actions,
+        okActionText: okActionText,
+        cancelActionText: cancelActionText);
   }
 
   /// Shows a dialog with the given [content].
@@ -106,15 +114,21 @@ class DialogHelper {
     String? cancelActionText,
   }) {
     actions ??= [
-      if (defaultActions == DialogActions.cancel || defaultActions == DialogActions.okAndCancel) ...{
+      if (defaultActions == DialogActions.cancel ||
+          defaultActions == DialogActions.okAndCancel) ...{
         PlatformTextButton(
-          child: cancelActionText != null ? PlatformText(cancelActionText) : Icon(CommonPlatformIcons.cancel),
+          child: cancelActionText != null
+              ? PlatformText(cancelActionText)
+              : Icon(CommonPlatformIcons.cancel),
           onPressed: () => Navigator.of(context).pop(false),
         ),
       },
-      if (defaultActions == DialogActions.ok || defaultActions == DialogActions.okAndCancel) ...{
+      if (defaultActions == DialogActions.ok ||
+          defaultActions == DialogActions.okAndCancel) ...{
         PlatformTextButton(
-          child: okActionText != null ? PlatformText(okActionText) : Icon(CommonPlatformIcons.ok),
+          child: okActionText != null
+              ? PlatformText(okActionText)
+              : Icon(CommonPlatformIcons.ok),
           onPressed: () => Navigator.of(context).pop(true),
         ),
       },
