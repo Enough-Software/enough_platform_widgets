@@ -23,7 +23,6 @@ Platform widgets use their material or cupertino equivalent based on the chosen 
 * `PlatformFilledButtonIcon` uses an `ElevatedButton.filled` on material and a `CupertinoButton.filled` on cupertino
 * `DensePlatformIconButton` replaces the material `IconButton`
 * `PlatformInkWell` is a rectangular area of a that responds to touch and is based either on `InkWell` or on `CupertinoInkWell`
-* `PlatformListTile` provides either a `ListTile` or a `CupertinoListTile`
 * `PlatformPageScaffold` provides a `PlatformScaffold` with the additional option to define a bottom bar.
 * `PlatformPopupButton` uses an action sheet on cupertino and a popup button on material.
 * `PlatformProgressIndicator` uses a `CircularProgressIndicator` on material and a `CupertinoActivityIndicator` on cupertino
