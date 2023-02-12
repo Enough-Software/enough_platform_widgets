@@ -19,7 +19,7 @@ Platform widgets use their material or cupertino equivalent based on the chosen 
 * `PlatformChip` a simple cross-platform `Chip` replacement
 * `PlatformDialogActionButton` is a platform aware dialog action
 * `PlatformDialogActionText` provides a platform aware dialog action text
-* `DropdownButton` is a replacement for the material `DropdownButton`
+* `PlatformDropdownButton` is a replacement for the material `DropdownButton`
 * `PlatformFilledButtonIcon` uses an `ElevatedButton.filled` on material and a `CupertinoButton.filled` on cupertino
 * `DensePlatformIconButton` replaces the material `IconButton`
 * `PlatformInkWell` is a rectangular area of a that responds to touch and is based either on `InkWell` or on `CupertinoInkWell`
