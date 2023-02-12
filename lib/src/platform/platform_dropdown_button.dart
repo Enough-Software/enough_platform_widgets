@@ -112,7 +112,7 @@ class PlatformDropdownButton<T> extends StatelessWidget {
         final data = material?.call(context, platform);
 
         return DropdownButton<T>(
-          items: data?.items ?? items ?? const <DropdownMenuItem<T>>[],
+          items: data?.items ?? items ?? <DropdownMenuItem<T>>[],
           selectedItemBuilder: data?.selectedItemBuilder ?? selectedItemBuilder,
           value: data?.value ?? value,
           hint: data?.hint ?? hint,
