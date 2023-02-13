@@ -14,6 +14,7 @@ class CupertinoDropdownButton<T> extends StatefulWidget {
   final Widget? hint;
   final double? width;
   final double? height;
+  final VoidCallback? onTap;
 
   const CupertinoDropdownButton({
     Key? key,
@@ -25,6 +26,7 @@ class CupertinoDropdownButton<T> extends StatefulWidget {
     required this.itemExtent,
     this.width,
     this.height,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -38,8 +40,8 @@ class _CupertinoDropdownButtonState<T>
 
   @override
   Widget build(BuildContext context) {
-    final itms = widget.items;
-    if (itms == null || itms.isEmpty) {
+    final items = widget.items;
+    if (items == null || items.isEmpty) {
       return Container();
     }
     final builder = widget.selectedItemBuilder;
@@ -50,7 +52,7 @@ class _CupertinoDropdownButtonState<T>
                   child: FittedBox(child: widget),
                 ))
             .toList()
-        : itms
+        : items
             .map((itm) => Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: FittedBox(child: itm.child),
@@ -59,7 +61,7 @@ class _CupertinoDropdownButtonState<T>
     final currentValue = widget.value;
 
     final currentIndex =
-        max(itms.indexWhere((item) => item.value == currentValue), 0);
+        max(items.indexWhere((item) => item.value == currentValue), 0);
     final child = currentValue == null
         ? widget.hint ?? Icon(CupertinoIcons.arrow_down)
         : children[currentIndex];
@@ -67,6 +69,7 @@ class _CupertinoDropdownButtonState<T>
       padding: EdgeInsets.all(8.0),
       child: FittedBox(child: child),
       onPressed: () async {
+        widget.onTap?.call();
         final scrollController = (currentValue == null)
             ? null
             : FixedExtentScrollController(

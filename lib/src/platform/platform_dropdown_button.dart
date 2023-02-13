@@ -10,7 +10,8 @@ abstract class _BaseData<T> {
     this.value,
     this.itemHeight,
     this.hint,
-    this.onChanged
+    this.onChanged,
+    this.onTap,
   });
 
   final List<DropdownMenuItem<T>>? items;
@@ -19,6 +20,7 @@ abstract class _BaseData<T> {
   final double? itemHeight;
   final Widget? hint;
   final void Function(T? value)? onChanged;
+  final VoidCallback? onTap;
 }
 
 class MaterialDropdownButtonData<T> extends _BaseData<T> {
@@ -30,7 +32,7 @@ class MaterialDropdownButtonData<T> extends _BaseData<T> {
     super.hint,
     super.onChanged,
     this.disabledHint,
-    this.onTap,
+    super.onTap,
     this.elevation,
     this.style,
     this.underline,
@@ -48,7 +50,6 @@ class MaterialDropdownButtonData<T> extends _BaseData<T> {
   });
 
   final Widget? disabledHint;
-  final void Function()? onTap;
   final int? elevation;
   final TextStyle? style;
   final Widget? underline;
@@ -66,16 +67,16 @@ class MaterialDropdownButtonData<T> extends _BaseData<T> {
 }
 
 class CupertinoDropdownButtonData<T> extends _BaseData<T> {
-  CupertinoDropdownButtonData({
-    super.items,
-    super.selectedItemBuilder,
-    super.value,
-    super.itemHeight,
-    super.hint,
-    super.onChanged,
-    this.width,
-    this.height
-  });
+  CupertinoDropdownButtonData(
+      {super.items,
+      super.selectedItemBuilder,
+      super.value,
+      super.itemHeight,
+      super.hint,
+      super.onChanged,
+      super.onTap,
+      this.width,
+      this.height});
 
   final double? width;
   final double? height;
@@ -83,16 +84,6 @@ class CupertinoDropdownButtonData<T> extends _BaseData<T> {
 
 /// A platform aware DropdownButton
 class PlatformDropdownButton<T> extends StatelessWidget {
-  final List<DropdownMenuItem<T>>? items;
-  final List<Widget> Function(BuildContext context)? selectedItemBuilder;
-  final T? value;
-  final double? itemHeight;
-  final Widget? hint;
-  final void Function(T? value)? onChanged;
-
-  final PlatformBuilder<MaterialDropdownButtonData<T>>? material;
-  final PlatformBuilder<CupertinoDropdownButtonData<T>>? cupertino;
-
   const PlatformDropdownButton({
     Key? key,
     required this.items,
@@ -101,9 +92,21 @@ class PlatformDropdownButton<T> extends StatelessWidget {
     this.hint,
     this.onChanged,
     this.itemHeight,
+    this.onTap,
     this.material,
     this.cupertino,
   }) : super(key: key);
+
+  final List<DropdownMenuItem<T>>? items;
+  final List<Widget> Function(BuildContext context)? selectedItemBuilder;
+  final T? value;
+  final double? itemHeight;
+  final Widget? hint;
+  final void Function(T? value)? onChanged;
+  final VoidCallback? onTap;
+
+  final PlatformBuilder<MaterialDropdownButtonData<T>>? material;
+  final PlatformBuilder<CupertinoDropdownButtonData<T>>? cupertino;
 
   @override
   Widget build(BuildContext context) {
@@ -117,9 +120,10 @@ class PlatformDropdownButton<T> extends StatelessWidget {
           value: data?.value ?? value,
           hint: data?.hint ?? hint,
           onChanged: data?.onChanged ?? onChanged,
-          itemHeight: data?.itemHeight ?? itemHeight ?? kMinInteractiveDimension,
+          itemHeight:
+              data?.itemHeight ?? itemHeight ?? kMinInteractiveDimension,
           disabledHint: data?.disabledHint,
-          onTap: data?.onTap,
+          onTap: data?.onTap ?? onTap,
           elevation: data?.elevation ?? 8,
           style: data?.style,
           underline: data?.underline,
@@ -148,6 +152,7 @@ class PlatformDropdownButton<T> extends StatelessWidget {
           onChanged: data?.onChanged ?? onChanged,
           width: data?.width,
           height: data?.height,
+          onTap: data?.onTap ?? onTap,
         );
       },
     );
