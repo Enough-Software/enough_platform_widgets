@@ -23,3 +23,4 @@ export 'dialog_helper.dart';
 export 'platform_icons.dart';
 export 'platform_toggle_buttons.dart';
 export 'platform_inkwell.dart';
+export 'platform_list_tile.dart';

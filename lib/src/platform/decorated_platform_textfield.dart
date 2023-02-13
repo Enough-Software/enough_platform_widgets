@@ -372,7 +372,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
   /// Should the label be shown at all on cupertino?
   final bool cupertinoShowLabel;
 
-  /// When the label is shown in cupertino, should it be rathered placed on top (instead of before) the input field?
+  /// When the label is shown in cupertino, should it be rather placed on top (instead of before) the input field?
   final bool cupertinoAlignLabelOnTop;
 
   /// When the suffix should be shown on cupertino
