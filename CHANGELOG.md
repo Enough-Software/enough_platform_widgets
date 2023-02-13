@@ -1,3 +1,6 @@
+## 0.7.1
+- Add `onTap` handler for `PlatformDropdownButton` and `CupertinoDropdownButton`.
+
 ## 0.7.0
 - Thanks again to [Dmytro Korotchenko](https://github.com/chitkiu) the `PlatformDropdownButton` is now more flexible.
 - Re-added `PlatformListTile`, this time based on the Flutter's official `CupertinoListTile` widget.
