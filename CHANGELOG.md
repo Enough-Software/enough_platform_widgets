@@ -1,3 +1,7 @@
+## 0.7.0
+- Thanks again to [Dmytro Korotchenko](https://github.com/chitkiu) the `PlatformDropdownButton` is now more flexible.
+- Re-added `PlatformListTile`, this time based on the Flutter's official `CupertinoListTile` widget.
+
 ## 0.6.0
 - Thanks again to [Brendan](https://github.com/definitelyme) enough_platform_widgets is now compatible with Flutter 3.7.
 
