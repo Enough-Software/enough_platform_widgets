@@ -3,30 +3,95 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../cupertino.dart';
 
-/// A platform aware DropdownButton
-class PlatformDropdownButton<T> extends StatelessWidget {
+abstract class _BaseData<T> {
+  _BaseData({
+    this.items,
+    this.selectedItemBuilder,
+    this.value,
+    this.itemHeight,
+    this.hint,
+    this.onChanged
+  });
+
   final List<DropdownMenuItem<T>>? items;
   final List<Widget> Function(BuildContext context)? selectedItemBuilder;
   final T? value;
+  final double? itemHeight;
   final Widget? hint;
-  final Widget? disabledHint;
   final void Function(T? value)? onChanged;
+}
+
+class MaterialDropdownButtonData<T> extends _BaseData<T> {
+  MaterialDropdownButtonData({
+    super.items,
+    super.selectedItemBuilder,
+    super.value,
+    super.itemHeight,
+    super.hint,
+    super.onChanged,
+    this.disabledHint,
+    this.onTap,
+    this.elevation,
+    this.style,
+    this.underline,
+    this.icon,
+    this.iconDisabledColor,
+    this.iconEnabledColor,
+    this.iconSize,
+    this.isDense,
+    this.isExpanded,
+    this.focusColor,
+    this.focusNode,
+    this.autofocus,
+    this.dropdownColor,
+    this.menuMaxHeight,
+  });
+
+  final Widget? disabledHint;
   final void Function()? onTap;
-  final int elevation;
+  final int? elevation;
   final TextStyle? style;
   final Widget? underline;
   final Widget? icon;
   final Color? iconDisabledColor;
   final Color? iconEnabledColor;
-  final double iconSize;
-  final bool isDense;
-  final bool isExpanded;
-  final double? itemHeight;
+  final double? iconSize;
+  final bool? isDense;
+  final bool? isExpanded;
   final Color? focusColor;
   final FocusNode? focusNode;
-  final bool autofocus;
+  final bool? autofocus;
   final Color? dropdownColor;
   final double? menuMaxHeight;
+}
+
+class CupertinoDropdownButtonData<T> extends _BaseData<T> {
+  CupertinoDropdownButtonData({
+    super.items,
+    super.selectedItemBuilder,
+    super.value,
+    super.itemHeight,
+    super.hint,
+    super.onChanged,
+    this.width,
+    this.height
+  });
+
+  final double? width;
+  final double? height;
+}
+
+/// A platform aware DropdownButton
+class PlatformDropdownButton<T> extends StatelessWidget {
+  final List<DropdownMenuItem<T>>? items;
+  final List<Widget> Function(BuildContext context)? selectedItemBuilder;
+  final T? value;
+  final double? itemHeight;
+  final Widget? hint;
+  final void Function(T? value)? onChanged;
+
+  final PlatformBuilder<MaterialDropdownButtonData<T>>? material;
+  final PlatformBuilder<CupertinoDropdownButtonData<T>>? cupertino;
 
   const PlatformDropdownButton({
     Key? key,
@@ -34,61 +99,57 @@ class PlatformDropdownButton<T> extends StatelessWidget {
     this.selectedItemBuilder,
     this.value,
     this.hint,
-    this.disabledHint,
     this.onChanged,
-    this.onTap,
-    this.elevation = 8,
-    this.style,
-    this.underline,
-    this.icon,
-    this.iconDisabledColor,
-    this.iconEnabledColor,
-    this.iconSize = 24.0,
-    this.isDense = false,
-    this.isExpanded = false,
-    this.itemHeight = kMinInteractiveDimension,
-    this.focusColor,
-    this.focusNode,
-    this.autofocus = false,
-    this.dropdownColor,
-    this.menuMaxHeight,
+    this.itemHeight,
+    this.material,
+    this.cupertino,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PlatformWidget(
-      material: (context, platform) => DropdownButton<T>(
-        items: items,
-        selectedItemBuilder: selectedItemBuilder,
-        value: value,
-        hint: hint,
-        disabledHint: disabledHint,
-        onChanged: onChanged,
-        onTap: onTap,
-        elevation: elevation,
-        style: style,
-        underline: underline,
-        icon: icon,
-        iconDisabledColor: iconDisabledColor,
-        iconEnabledColor: iconEnabledColor,
-        iconSize: iconSize,
-        isDense: isDense,
-        isExpanded: isExpanded,
-        itemHeight: itemHeight,
-        focusColor: focusColor,
-        focusNode: focusNode,
-        autofocus: autofocus,
-        dropdownColor: dropdownColor,
-        menuMaxHeight: menuMaxHeight,
-      ),
-      cupertino: (context, platform) => CupertinoDropdownButton(
-        items: items,
-        selectedItemBuilder: selectedItemBuilder,
-        value: value,
-        itemExtent: itemHeight ?? 12.0,
-        hint: hint,
-        onChanged: onChanged,
-      ),
+      material: (context, platform) {
+        final data = material?.call(context, platform);
+
+        return DropdownButton<T>(
+          items: data?.items ?? items ?? <DropdownMenuItem<T>>[],
+          selectedItemBuilder: data?.selectedItemBuilder ?? selectedItemBuilder,
+          value: data?.value ?? value,
+          hint: data?.hint ?? hint,
+          onChanged: data?.onChanged ?? onChanged,
+          itemHeight: data?.itemHeight ?? itemHeight ?? kMinInteractiveDimension,
+          disabledHint: data?.disabledHint,
+          onTap: data?.onTap,
+          elevation: data?.elevation ?? 8,
+          style: data?.style,
+          underline: data?.underline,
+          icon: data?.icon,
+          iconDisabledColor: data?.iconDisabledColor,
+          iconEnabledColor: data?.iconEnabledColor,
+          iconSize: data?.iconSize ?? 24.0,
+          isDense: data?.isDense ?? false,
+          isExpanded: data?.isExpanded ?? false,
+          focusColor: data?.focusColor,
+          focusNode: data?.focusNode,
+          autofocus: data?.autofocus ?? false,
+          dropdownColor: data?.dropdownColor,
+          menuMaxHeight: data?.menuMaxHeight,
+        );
+      },
+      cupertino: (context, platform) {
+        final data = cupertino?.call(context, platform);
+
+        return CupertinoDropdownButton(
+          items: data?.items ?? items,
+          selectedItemBuilder: data?.selectedItemBuilder ?? selectedItemBuilder,
+          value: data?.value ?? value,
+          itemExtent: data?.itemHeight ?? itemHeight ?? 12.0,
+          hint: data?.hint ?? hint,
+          onChanged: data?.onChanged ?? onChanged,
+          width: data?.width,
+          height: data?.height,
+        );
+      },
     );
   }
 }
