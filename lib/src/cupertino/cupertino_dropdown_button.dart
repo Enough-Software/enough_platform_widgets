@@ -12,6 +12,8 @@ class CupertinoDropdownButton<T> extends StatefulWidget {
   final void Function(T? value)? onChanged;
   final double itemExtent;
   final Widget? hint;
+  final double? width;
+  final double? height;
 
   const CupertinoDropdownButton({
     Key? key,
@@ -21,6 +23,8 @@ class CupertinoDropdownButton<T> extends StatefulWidget {
     this.onChanged,
     this.hint,
     required this.itemExtent,
+    this.width,
+    this.height,
   }) : super(key: key);
 
   @override
@@ -71,8 +75,8 @@ class _CupertinoDropdownButtonState<T>
         final result = await showCupertinoModalPopup<bool>(
           context: context,
           builder: (context) => SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.7,
+            width: widget.width ?? MediaQuery.of(context).size.width,
+            height: widget.height ?? MediaQuery.of(context).size.height * 0.7,
             child: SafeArea(
               child: Container(
                 color: CupertinoTheme.of(context).barBackgroundColor,
