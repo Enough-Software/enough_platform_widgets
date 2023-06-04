@@ -27,8 +27,10 @@ jobs:
         with:
           channel: 'stable'  
 
-      - name: Install dependencies
+      - name: Inform about used Flutter version
         run: flutter doctor
+        
+      - name: Install dependencies
         run: flutter pub get
 
       # Uncomment this step to verify the use of 'dart format' on each commit.
