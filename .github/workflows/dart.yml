@@ -17,12 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      # The flutter action needs java so include it
-      - uses: actions/setup-java@v1
-        with:
-          java-version: '12.x'
     # Include the flutter action
-      - uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'  
 
