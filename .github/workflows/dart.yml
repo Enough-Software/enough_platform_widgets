@@ -22,14 +22,13 @@ jobs:
         with:
           java-version: '12.x'
     # Include the flutter action
-      - uses: dart-lang/setup-dart@1
       - uses: subosito/flutter-action@v1
         with:
           channel: 'stable'  
 
       - name: Inform about used Flutter version
-        run: flutter doctor
-        
+        run: flutter --version
+
       - name: Install dependencies
         run: flutter pub get
 
