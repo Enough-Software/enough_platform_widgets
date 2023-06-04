@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 /// Uses either a `ListTile` or a `CupertinoListTile`
-class PlatformListTile extends StatelessWidget {
-  const PlatformListTile({
+class SelectablePlatformListTile extends StatelessWidget {
+  const SelectablePlatformListTile({
     Key? key,
     this.widgetKey,
     this.leading,

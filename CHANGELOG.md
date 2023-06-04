@@ -1,3 +1,6 @@
+## 0.7.2
+- Rename `PlatformListTile` to  `SelectablePlatformListTile` to remove naming conflict with flutter_platform_widgets - thanks to [DanielSmith1239](https://github.com/DanielSmith1239) and [dab246](https://github.com/dab246) for reporting this [problem](https://github.com/Enough-Software/enough_platform_widgets/issues/12)!
+
 ## 0.7.1
 - Add `onTap` handler for `PlatformDropdownButton` and `CupertinoDropdownButton`.
 
