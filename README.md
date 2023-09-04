@@ -13,6 +13,7 @@ Licensed commercially friendly under the [MIT License](LICENSE).
 Platform widgets use their material or cupertino equivalent based on the chosen platform.
 
 * `DecoratedPlatformTextField` provides a cross platform replacement for the material `TextField`
+* `DensePlatformIconButton` replaces the material `IconButton`
 * `DialogHelper` helps to show platform specific dialogs
 * `PlatformBottomBar` shows a `BottomAppBar` on material and a `CupertinoBar` on cupertino
 * `PlatformCheckboxListTile` is a platform aware simple checkbox list tile
@@ -21,9 +22,7 @@ Platform widgets use their material or cupertino equivalent based on the chosen 
 * `PlatformDialogActionText` provides a platform aware dialog action text
 * `PlatformDropdownButton` is a replacement for the material `DropdownButton`
 * `PlatformFilledButtonIcon` uses an `ElevatedButton.filled` on material and a `CupertinoButton.filled` on cupertino
-* `DensePlatformIconButton` replaces the material `IconButton`
 * `PlatformInkWell` is a rectangular area of a that responds to touch and is based either on `InkWell` or on `CupertinoInkWell`
-* `SelectablePlatformListTile` provides a ListTile implementation for both material and cupertino
 * `PlatformPageScaffold` provides a `PlatformScaffold` with the additional option to define a bottom bar.
 * `PlatformPopupButton` uses an action sheet on cupertino and a popup button on material.
 * `PlatformProgressIndicator` uses a `CircularProgressIndicator` on material and a `CupertinoActivityIndicator` on cupertino
@@ -34,6 +33,7 @@ Platform widgets use their material or cupertino equivalent based on the chosen 
 * `PlatformTextButtonIcon` is a simple replacement for `TextButton.icon`
 * `PlatformToggleButtons` provides a platform aware `ToggleButtons` replacement
 * `PlatformToolbar` provides a toolbar option
+* `SelectablePlatformListTile` provides a ListTile implementation for both material and cupertino
 * `showPlatformTimePicker()` displays a platform aware time picker
 * `showPlatformDatePicker()` displays a platform aware date picker
 * Additionally, all [flutter_platform_widgets](https://pub.dev/packages/flutter_platform_widgets) are available.
