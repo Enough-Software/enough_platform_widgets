@@ -83,20 +83,22 @@ class DialogHelper {
   /// Shows a simple text dialog with the given [title] and [text].
   ///
   /// Compare [showWidgetDialog] for parameter details.
-  static Future showTextDialog(
+  static Future<T?> showTextDialog<T>(
     BuildContext context,
     String title,
     String text, {
     List<Widget>? actions,
     String? okActionText,
     String? cancelActionText,
-  }) {
-    return showWidgetDialog(context, Text(text),
+  }) =>
+      showWidgetDialog<T>(
+        context,
+        Text(text),
         title: title,
         actions: actions,
         okActionText: okActionText,
-        cancelActionText: cancelActionText);
-  }
+        cancelActionText: cancelActionText,
+      );
 
   /// Shows a dialog with the given [content].
   ///
@@ -104,7 +106,7 @@ class DialogHelper {
   /// Specify custom [actions] to provide dialog specific actions, alternatively specify the [defaultActions]. Without [actions] or [defaultActions] only and OK button is shown.
   /// Specify the [okActionText] and [cancelActionText] when no icons should be used for the default actions.
   /// When default actions are used, this method will return `true` when the user pressed `ok` and `false` after selecting `cancel`.
-  static Future showWidgetDialog(
+  static Future<T?> showWidgetDialog<T>(
     BuildContext context,
     Widget content, {
     String? title,
@@ -134,7 +136,7 @@ class DialogHelper {
       },
     ];
     if (PlatformInfo.isCupertino) {
-      return showCupertinoDialog(
+      return showCupertinoDialog<T>(
         context: context,
         builder: (context) => CupertinoAlertDialog(
           title: title == null ? null : Text(title),
@@ -143,7 +145,7 @@ class DialogHelper {
         ),
       );
     } else {
-      return showDialog(
+      return showDialog<T>(
         builder: (context) => AlertDialog(
           title: title == null ? null : Text(title),
           content: content,
