@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 /// A CupertinoApp that also allows to display snack bar messages
 class CupertinoSnackApp extends StatelessWidget {
   const CupertinoSnackApp({
-    Key? key,
+    super.key,
     this.widgetKey,
     this.navigatorKey,
     this.home,
@@ -34,7 +34,50 @@ class CupertinoSnackApp extends StatelessWidget {
     this.restorationScopeId,
     this.scrollBehavior,
     this.scaffoldMessengerKey,
-  }) : super(key: key);
+  })  : _isRouter = false,
+        routeInformationParser = null,
+        routerDelegate = null,
+        backButtonDispatcher = null,
+        routerConfig = null,
+        routeInformationProvider = null;
+
+  const CupertinoSnackApp.router({
+    super.key,
+    this.widgetKey,
+    this.routeInformationParser,
+    this.routerDelegate,
+    this.backButtonDispatcher,
+    this.routerConfig,
+    this.routeInformationProvider,
+    this.theme,
+    this.onGenerateTitle,
+    this.builder,
+    this.title = '',
+    this.color,
+    this.locale,
+    this.localizationsDelegates,
+    this.localeListResolutionCallback,
+    this.localeResolutionCallback,
+    this.supportedLocales = const <Locale>[Locale('en', 'US')],
+    this.showPerformanceOverlay = false,
+    this.checkerboardRasterCacheImages = false,
+    this.checkerboardOffscreenLayers = false,
+    this.showSemanticsDebugger = false,
+    this.debugShowCheckedModeBanner = true,
+    this.shortcuts,
+    this.actions,
+    this.restorationScopeId,
+    this.scrollBehavior,
+    this.scaffoldMessengerKey,
+  })  : _isRouter = true,
+        navigatorKey = null,
+        home = null,
+        initialRoute = null,
+        onGenerateRoute = null,
+        onGenerateInitialRoutes = null,
+        onUnknownRoute = null,
+        routes = const <String, WidgetBuilder>{},
+        navigatorObservers = const <NavigatorObserver>[];
 
   final Key? widgetKey;
   final GlobalKey<NavigatorState>? navigatorKey;
@@ -66,39 +109,74 @@ class CupertinoSnackApp extends StatelessWidget {
   final String? restorationScopeId;
   final ScrollBehavior? scrollBehavior;
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
+  final RouteInformationProvider? routeInformationProvider;
+  final RouteInformationParser<Object>? routeInformationParser;
+  final RouterDelegate<Object>? routerDelegate;
+  final BackButtonDispatcher? backButtonDispatcher;
+  final RouterConfig<Object>? routerConfig;
+
+  final bool _isRouter;
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      key: widgetKey,
-      navigatorKey: navigatorKey,
-      navigatorObservers: navigatorObservers,
-      home: home,
-      theme: theme,
-      routes: routes,
-      initialRoute: initialRoute,
-      onGenerateRoute: onGenerateRoute,
-      onGenerateInitialRoutes: onGenerateInitialRoutes,
-      onUnknownRoute: onUnknownRoute,
-      builder: _build,
-      title: title,
-      onGenerateTitle: onGenerateTitle,
-      color: color,
-      locale: locale,
-      localizationsDelegates: localizationsDelegates,
-      localeResolutionCallback: localeResolutionCallback,
-      localeListResolutionCallback: localeListResolutionCallback,
-      supportedLocales: supportedLocales,
-      showPerformanceOverlay: showPerformanceOverlay,
-      checkerboardRasterCacheImages: checkerboardRasterCacheImages,
-      checkerboardOffscreenLayers: checkerboardOffscreenLayers,
-      showSemanticsDebugger: showSemanticsDebugger,
-      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-      shortcuts: shortcuts,
-      actions: actions,
-      restorationScopeId: restorationScopeId,
-      scrollBehavior: scrollBehavior,
-    );
+    return _isRouter
+        ? CupertinoApp.router(
+            key: widgetKey,
+            theme: theme,
+            routerConfig: routerConfig,
+            routeInformationParser: routeInformationParser,
+            routeInformationProvider: routeInformationProvider,
+            routerDelegate: routerDelegate,
+            backButtonDispatcher: backButtonDispatcher,
+            builder: _build,
+            title: title,
+            onGenerateTitle: onGenerateTitle,
+            color: color,
+            locale: locale,
+            localizationsDelegates: localizationsDelegates,
+            localeResolutionCallback: localeResolutionCallback,
+            localeListResolutionCallback: localeListResolutionCallback,
+            supportedLocales: supportedLocales,
+            showPerformanceOverlay: showPerformanceOverlay,
+            checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+            checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+            showSemanticsDebugger: showSemanticsDebugger,
+            debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+            shortcuts: shortcuts,
+            actions: actions,
+            restorationScopeId: restorationScopeId,
+            scrollBehavior: scrollBehavior,
+          )
+        : CupertinoApp(
+            key: widgetKey,
+            navigatorKey: navigatorKey,
+            navigatorObservers: navigatorObservers,
+            home: home,
+            theme: theme,
+            routes: routes,
+            initialRoute: initialRoute,
+            onGenerateRoute: onGenerateRoute,
+            onGenerateInitialRoutes: onGenerateInitialRoutes,
+            onUnknownRoute: onUnknownRoute,
+            builder: _build,
+            title: title,
+            onGenerateTitle: onGenerateTitle,
+            color: color,
+            locale: locale,
+            localizationsDelegates: localizationsDelegates,
+            localeResolutionCallback: localeResolutionCallback,
+            localeListResolutionCallback: localeListResolutionCallback,
+            supportedLocales: supportedLocales,
+            showPerformanceOverlay: showPerformanceOverlay,
+            checkerboardRasterCacheImages: checkerboardRasterCacheImages,
+            checkerboardOffscreenLayers: checkerboardOffscreenLayers,
+            showSemanticsDebugger: showSemanticsDebugger,
+            debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+            shortcuts: shortcuts,
+            actions: actions,
+            restorationScopeId: restorationScopeId,
+            scrollBehavior: scrollBehavior,
+          );
   }
 
   Widget _build(BuildContext context, Widget? child) {
