@@ -1,3 +1,7 @@
+## 0.7.4
+- Improved `DialogHandler` API - you can now specify the return type, e.g. `final result = await DialogHandler.showWidgetDialog<bool>(...)`
+- Add `PlatformSnackApp.router` and `CupertinoSnackApp.router` to allow for using the `Router` API
+
 ## 0.7.3
 - Update dependencies
 - Add simple example
