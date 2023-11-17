@@ -214,7 +214,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
   ///
   /// If non-null this property overrides the [decoration]'s
   /// [InputDecoration.enabled] property.
-  final bool? enabled;
+  final bool enabled;
 
   /// {@macro flutter.widgets.editableText.cursorWidth}
   final double cursorWidth;
@@ -412,7 +412,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
     this.onSubmitted,
     this.onAppPrivateCommand,
     this.inputFormatters,
-    this.enabled,
+    this.enabled = true,
     this.cursorWidth = 2.0,
     this.cursorHeight,
     this.cursorRadius,
