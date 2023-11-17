@@ -1,3 +1,7 @@
+## 0.8.0
+- Fix an error on `enabled` Textfield in the `DecoratedPlatformTextfield`
+- Update `flutter_platform_widgets` to `6.0.2`
+
 ## 0.7.4
 - Improved `DialogHandler` API - you can now specify the return type, e.g. `final result = await DialogHandler.showWidgetDialog<bool>(...)`
 - Add `PlatformSnackApp.router` and `CupertinoSnackApp.router` to allow for using the `Router` API
