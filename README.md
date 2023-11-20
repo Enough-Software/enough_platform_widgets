@@ -1,4 +1,5 @@
 # enough_platform_widgets
+[![enough_platform_widgets version](https://img.shields.io/pub/v/enough_platform_widgets.svg)](https://pub.dartlang.org/packages/enough_platform_widgets)
 
 More cross platform widgets for Flutter developers.
 
@@ -7,6 +8,13 @@ Based on these great packages:
 * [cupertino_stepper](cupertino_stepper)
 
 Licensed commercially friendly under the [MIT License](LICENSE).
+
+## Installation
+Add this as a dependency to your `pubspec.yaml`:
+```
+dependencies:
+  enough_platform_widgets: ^1.0.0
+```
 
 ## Flutter Versions
 * Use 1.0 or higher for Flutter 3.16+
@@ -56,16 +64,6 @@ Currently the following cupertino widgets are provided:
 * `CupertinoSearchFlowTextField` displays a CupertinoSearchTextField with the expected UX flow that switches to a full-screen experience once editing starts
 * `CupertinoSnackApp` is a CupertinoApp that also allows to display snack bar messages
 * `CupertinoToolbar` a simple wrapper for a cupertino toolbar widget 
-
-## Installation
-Add this as a dependency to your `pubspec.yaml`:
-```
-dependencies:
-  enough_platform_widgets: ^1.0.0
-```
-
-The latest version or `enough_platform_widgets` is [![enough_platform_widgets version](https://img.shields.io/pub/v/enough_platform_widgets.svg)](https://pub.dartlang.org/packages/enough_platform_widgets).
-
 
 ## API Documentation
 Check out the full API documentation at https://pub.dev/documentation/enough_platform_widgets/latest/
