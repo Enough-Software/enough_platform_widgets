@@ -61,7 +61,7 @@ Currently the following cupertino widgets are provided:
 Add this as a dependency to your `pubspec.yaml`:
 ```
 dependencies:
-  enough_platform_widgets: ^0.7.2
+  enough_platform_widgets: ^1.0.0
 ```
 
 The latest version or `enough_platform_widgets` is [![enough_platform_widgets version](https://img.shields.io/pub/v/enough_platform_widgets.svg)](https://pub.dartlang.org/packages/enough_platform_widgets).
@@ -69,3 +69,10 @@ The latest version or `enough_platform_widgets` is [![enough_platform_widgets ve
 
 ## API Documentation
 Check out the full API documentation at https://pub.dev/documentation/enough_platform_widgets/latest/
+
+## Thanks to all Contributors!!
+<a href="https://github.com/Enough-Software/enough_platform_widgets/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Enough-Software/enough_platform_widgets" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
