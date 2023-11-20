@@ -1,6 +1,7 @@
-## 0.8.0
-- Fix an error on `enabled` Textfield in the `DecoratedPlatformTextfield`
-- Update `flutter_platform_widgets` to `6.0.2`
+## 1.0.0
+- Fixes compatibility with Flutter 3.16 by having a default value for the `enabled` property of Textfield in the `DecoratedPlatformTextfield`
+- Update `flutter_platform_widgets` to `6.0.2`, this requires the usage of Flutter 3.16+
+- Many thanks to [Kiruel](https://github.com/Kiruel) for the above changes!
 
 ## 0.7.4
 - Improved `DialogHandler` API - you can now specify the return type, e.g. `final result = await DialogHandler.showWidgetDialog<bool>(...)`

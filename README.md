@@ -8,6 +8,10 @@ Based on these great packages:
 
 Licensed commercially friendly under the [MIT License](LICENSE).
 
+## Flutter Versions
+* Use 1.0 or higher for Flutter 3.16+
+* Use 0.7.4 for previous Flutter versions
+
 
 ## Platform Widgets and Methods
 Platform widgets use their material or cupertino equivalent based on the chosen platform.
