@@ -1,3 +1,6 @@
+## 1.1.1
+- Upgrade to flutter_platform_widgets 7
+
 ## 1.1.0
 - Renamed `PlatformSliverAppBar` to `EnoughPlatformSliverAppBar` to avoid naming conflict with flutter_platform_widgets
 
