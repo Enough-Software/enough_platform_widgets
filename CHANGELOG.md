@@ -1,3 +1,9 @@
+## 1.1.1
+- Upgrade to flutter_platform_widgets 7
+
+## 1.1.0
+- Renamed `PlatformSliverAppBar` to `EnoughPlatformSliverAppBar` to avoid naming conflict with flutter_platform_widgets
+
 ## 1.0.0
 - Fixes compatibility with Flutter 3.16 by having a default value for the `enabled` property of Textfield in the `DecoratedPlatformTextfield`
 - Update `flutter_platform_widgets` to `6.0.2`, this requires the usage of Flutter 3.16+
