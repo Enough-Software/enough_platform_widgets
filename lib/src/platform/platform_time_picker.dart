@@ -58,8 +58,10 @@ Future<TimeOfDay?> showPlatformTimePicker({
         ),
       ),
     );
-    if (result == true && pickedTime != null) {
-      return TimeOfDay.fromDateTime(pickedTime!);
+    if (result == true) {
+      return pickedTime != null
+          ? TimeOfDay.fromDateTime(pickedTime!)
+          : TimeOfDay.fromDateTime(initialDateTime);
     }
     return null;
   } else {
