@@ -142,8 +142,10 @@ Future<DateTime?> showPlatformSpecificDatePicker({
         ),
       ),
     );
-    if (result == true && pickedTime != null) {
-      return pickedTime;
+    if (result == true) {
+      return pickedTime != null
+          ? TimeOfDay.fromDateTime(pickedTime!)
+          : TimeOfDay.fromDateTime(initialDateTime);
     }
     return null;
   } else {
