@@ -27,7 +27,7 @@ Future<TimeOfDay?> showPlatformTimePicker({
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.4,
         child: Container(
-          color: CupertinoTheme.of(context).barBackgroundColor,
+          color: Theme.of(context).canvasColor,
           child: Column(
             children: [
               Row(
