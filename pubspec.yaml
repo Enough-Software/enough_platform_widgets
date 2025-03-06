@@ -8,15 +8,15 @@ topics:
  - widgets
 
 environment:
-  sdk: ">=2.17.0 <4.0.0"
-  flutter: ">=3.16.0"
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.16.0 <4.0.0"
 
 dependencies:
   cupertino_stepper: ^0.2.1
   cupertino_progress_bar: ^0.2.0
   flutter:
     sdk: flutter
-  flutter_platform_widgets: ^7.0.0
+  flutter_platform_widgets: ^8.0.0
 
 dev_dependencies:
   flutter_test:
