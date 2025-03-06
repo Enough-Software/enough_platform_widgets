@@ -23,7 +23,7 @@ class PlatformProgressIndicator extends StatelessWidget {
     return PlatformWidget(
         material: (context, platform) => CircularProgressIndicator(value: v),
         cupertino: (context, platform) => (v == null)
-            ? CupertinoActivityIndicator()
+            ? const CupertinoActivityIndicator()
             : CupertinoProgressBar(value: v));
   }
 }

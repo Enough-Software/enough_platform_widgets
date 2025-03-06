@@ -47,13 +47,13 @@ class PlatformFilledButtonIcon extends StatelessWidget {
         autofocus: autofocus,
       ),
       cupertino: (context, platform) => CupertinoButton.filled(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         key: widgetKey,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(right: 8.0),
+              padding: const EdgeInsets.only(right: 8.0),
               child: icon,
             ),
             Expanded(child: label),

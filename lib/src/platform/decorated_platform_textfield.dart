@@ -293,14 +293,14 @@ class DecoratedPlatformTextField extends StatelessWidget {
   /// widget.
   ///
   /// If [mouseCursor] is a [MaterialStateProperty<MouseCursor>],
-  /// [MaterialStateProperty.resolve] is used for the following [MaterialState]s:
+  /// [WidgetStateProperty.resolve] is used for the following [WidgetState]s:
   ///
-  ///  * [MaterialState.error].
-  ///  * [MaterialState.hovered].
-  ///  * [MaterialState.focused].
-  ///  * [MaterialState.disabled].
+  ///  * [WidgetState.error].
+  ///  * [WidgetState.hovered].
+  ///  * [WidgetState.focused].
+  ///  * [WidgetState.disabled].
   ///
-  /// If this property is null, [MaterialStateMouseCursor.textable] will be used.
+  /// If this property is null, [WidgetStateMouseCursor.textable] will be used.
   ///
   /// The [mouseCursor] is the only property of [TextField] that controls the
   /// appearance of the mouse pointer. All other properties related to "cursor"
@@ -558,7 +558,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(right: 8.0),
+                  padding: const EdgeInsets.only(right: 8.0),
                   child: icon,
                 ),
                 Expanded(child: content),
@@ -566,7 +566,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
             );
           }
           content = Padding(
-            padding: EdgeInsets.symmetric(vertical: 4.0),
+            padding: const EdgeInsets.symmetric(vertical: 4.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -576,7 +576,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
                   style: decoration?.labelStyle,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 4.0),
+                  padding: const EdgeInsets.only(top: 4.0),
                   child: content,
                 ),
               ],
@@ -584,13 +584,13 @@ class DecoratedPlatformTextField extends StatelessWidget {
           );
         } else if (cupertinoShowLabel && (labelText != null || icon != null)) {
           content = Padding(
-            padding: EdgeInsets.symmetric(vertical: 4.0),
+            padding: const EdgeInsets.symmetric(vertical: 4.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 if (labelText != null) ...{
                   Padding(
-                    padding: EdgeInsets.only(right: 8.0),
+                    padding: const EdgeInsets.only(right: 8.0),
                     child: Text(
                       labelText,
                       style: decoration?.labelStyle,
@@ -599,7 +599,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
                 },
                 if (icon != null) ...{
                   Padding(
-                    padding: EdgeInsets.only(right: 8.0),
+                    padding: const EdgeInsets.only(right: 8.0),
                     child: icon,
                   ),
                 },
@@ -609,7 +609,7 @@ class DecoratedPlatformTextField extends StatelessWidget {
           );
         } else {
           content = Padding(
-            padding: EdgeInsets.symmetric(vertical: 4.0),
+            padding: const EdgeInsets.symmetric(vertical: 4.0),
             child: content,
           );
         }

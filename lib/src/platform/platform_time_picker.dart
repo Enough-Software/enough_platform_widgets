@@ -36,12 +36,12 @@ Future<TimeOfDay?> showPlatformTimePicker({
                   CupertinoButton(
                       child: (cancelText != null)
                           ? Text(cancelText)
-                          : Icon(CupertinoIcons.clear_circled),
+                          : const Icon(CupertinoIcons.clear_circled),
                       onPressed: () => Navigator.of(context).pop(false)),
                   CupertinoButton(
                       child: (confirmText != null)
                           ? Text(confirmText)
-                          : Icon(CupertinoIcons.check_mark_circled),
+                          : const Icon(CupertinoIcons.check_mark_circled),
                       onPressed: () => Navigator.of(context).pop(true)),
                 ],
               ),
@@ -120,12 +120,12 @@ Future<DateTime?> showPlatformSpecificDatePicker({
                   CupertinoButton(
                       child: (cancelText != null)
                           ? Text(cancelText)
-                          : Icon(CupertinoIcons.clear_circled),
+                          : const Icon(CupertinoIcons.clear_circled),
                       onPressed: () => Navigator.of(context).pop(false)),
                   CupertinoButton(
                       child: (confirmText != null)
                           ? Text(confirmText)
-                          : Icon(CupertinoIcons.check_mark_circled),
+                          : const Icon(CupertinoIcons.check_mark_circled),
                       onPressed: () => Navigator.of(context).pop(true)),
                 ],
               ),

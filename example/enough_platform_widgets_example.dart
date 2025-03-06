@@ -29,14 +29,14 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => PlatformScaffold(
         appBar: PlatformAppBar(
-          title: Text('Hello World'),
+          title: const Text('Hello World'),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               child: ListView(
-                children: [
+                children: const [
                   SelectablePlatformListTile(
                     title: Text('List Tile 1'),
                   ),

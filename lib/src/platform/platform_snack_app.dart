@@ -51,7 +51,7 @@ class PlatformSnackApp extends StatelessWidget {
         routeInformationParser = null,
         routerDelegate = null;
 
-  PlatformSnackApp.router({
+  const PlatformSnackApp.router({
     super.key,
     this.widgetKey,
     this.backButtonDispatcher,

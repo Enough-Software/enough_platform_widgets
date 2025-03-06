@@ -79,7 +79,7 @@ class CupertinoMultipleSegmentedControl extends StatefulWidget {
   /// If no [groupValue] is provided, or the [groupValue] is null, no widget will
   /// appear as selected. The [groupValue] must be either null or one of the keys
   /// in the [children] map.
-  CupertinoMultipleSegmentedControl({
+  const CupertinoMultipleSegmentedControl({
     Key? key,
     required this.children,
     required this.isSelected,
@@ -361,7 +361,7 @@ class _SegmentedControlState extends State<CupertinoMultipleSegmentedControl>
     final List<Widget> _gestureChildren = <Widget>[];
     final List<Color> _backgroundColors = <Color>[];
     //int? selectedIndex;
-    int? pressedIndex = _pressedKey;
+    final int? pressedIndex = _pressedKey;
     for (var i = 0; i < widget.children.length; i++) {
       final selected = widget.isSelected[i];
 
@@ -417,7 +417,7 @@ class _SegmentedControlState extends State<CupertinoMultipleSegmentedControl>
 }
 
 class _SegmentedControlRenderWidget extends MultiChildRenderObjectWidget {
-  _SegmentedControlRenderWidget({
+  const _SegmentedControlRenderWidget({
     Key? key,
     List<Widget> children = const <Widget>[],
     required this.isSelected,

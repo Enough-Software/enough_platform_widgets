@@ -33,20 +33,16 @@ class CupertinoRadioListTile<T> extends StatelessWidget {
     final highlightColor = (onChanged != null)
         ? (activeColor ?? theme.primaryColor)
         : (theme.barBackgroundColor);
-    final padding = contentPadding ?? EdgeInsets.all(8.0);
+    final padding = contentPadding ?? const EdgeInsets.all(8.0);
     final t = title;
     final st = subtitle;
-    var content = t != null && st != null
+    final content = t != null && st != null
         ? Column(
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [t, st],
           )
-        : t != null
-            ? t
-            : st != null
-                ? st
-                : Container();
+        : t ?? (st ?? Container());
     return GestureDetector(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -64,7 +60,7 @@ class CupertinoRadioListTile<T> extends StatelessWidget {
               child: Padding(
                 padding: padding,
                 child: CupertinoTheme(
-                  data: CupertinoThemeData(
+                  data: const CupertinoThemeData(
                     textTheme: CupertinoTextThemeData(
                       primaryColor: CupertinoColors.label,
                       // textStyle: TextStyle(color: CupertinoColors.label),

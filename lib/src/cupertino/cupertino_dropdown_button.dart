@@ -63,10 +63,10 @@ class _CupertinoDropdownButtonState<T>
     final currentIndex =
         max(items.indexWhere((item) => item.value == currentValue), 0);
     final child = currentValue == null
-        ? widget.hint ?? Icon(CupertinoIcons.arrow_down)
+        ? widget.hint ?? const Icon(CupertinoIcons.arrow_down)
         : children[currentIndex];
     return CupertinoButton(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       child: FittedBox(child: child),
       onPressed: () async {
         widget.onTap?.call();

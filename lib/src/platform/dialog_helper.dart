@@ -31,7 +31,7 @@ class DialogHelper {
             CupertinoDialogAction(
               child: cancelActionText != null
                   ? Text(cancelActionText)
-                  : Icon(CupertinoIcons.clear),
+                  : const Icon(CupertinoIcons.clear),
               onPressed: () => Navigator.of(context).pop(false),
             ),
             CupertinoDialogAction(
@@ -65,7 +65,7 @@ class DialogHelper {
             TextButton(
               child: cancelActionText != null
                   ? PlatformText(cancelActionText)
-                  : Icon(Icons.cancel),
+                  : const Icon(Icons.cancel),
               onPressed: () => Navigator.of(context).pop(false),
             ),
             TextButton(
