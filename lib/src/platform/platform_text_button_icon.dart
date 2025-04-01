@@ -48,13 +48,13 @@ class PlatformTextButtonIcon extends StatelessWidget {
       ),
       cupertino: (context, platform) => CupertinoButton(
         color: backgroundColor,
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         key: widgetKey,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(right: 8.0),
+              padding: const EdgeInsets.only(right: 8.0),
               child: icon,
             ),
             Expanded(

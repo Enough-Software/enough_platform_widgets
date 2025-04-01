@@ -40,7 +40,7 @@ class CupertinoCheckboxListTile extends StatelessWidget {
             CupertinoIcons.circle,
             color: highlightColor,
           );
-    final padding = contentPadding ?? EdgeInsets.all(8.0);
+    final padding = contentPadding ?? const EdgeInsets.all(8.0);
     final t = title;
     final st = subtitle;
     var content = t != null && st != null
@@ -49,11 +49,7 @@ class CupertinoCheckboxListTile extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [t, st],
           )
-        : t != null
-            ? t
-            : st != null
-                ? st
-                : Container();
+        : t ?? (st ?? Container());
     if (selected) {
       content = CupertinoTheme(
         data: CupertinoThemeData(

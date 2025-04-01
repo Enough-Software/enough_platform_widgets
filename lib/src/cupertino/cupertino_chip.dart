@@ -34,7 +34,7 @@ class CupertinoChip extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             border: Border.all(),
-            borderRadius: BorderRadius.all(Radius.circular(8))),
+            borderRadius: const BorderRadius.all(Radius.circular(8))),
         child: Padding(
           padding: const EdgeInsets.all(4.0),
           child: content,

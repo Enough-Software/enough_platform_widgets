@@ -13,7 +13,7 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
   final Widget? icon;
   final EdgeInsets? cupertinoButtonPadding;
 
-  PlatformPopupMenuButton({
+  const PlatformPopupMenuButton({
     Key? key,
     this.child,
     required this.itemBuilder,
@@ -58,13 +58,13 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
       },
       cupertino: (context, platform) => CupertinoButton(
         padding: cupertinoButtonPadding,
-        child: icon ?? child ?? Icon(CupertinoIcons.ellipsis_circle),
+        child: icon ?? child ?? const Icon(CupertinoIcons.ellipsis_circle),
         onPressed: () => _showActionSheet(context),
       ),
     );
   }
 
-  void _showActionSheet(BuildContext context) async {
+  Future<void> _showActionSheet(BuildContext context) async {
     final localizations = MaterialLocalizations.of(context);
     final cancelLabel = _toCamelCase(localizations.cancelButtonLabel);
     final value = await showCupertinoModalPopup<T>(
@@ -102,7 +102,7 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
         },
       );
     }
-    return Divider();
+    return const Divider();
   }
 
   PopupMenuEntry<T> _toMaterialEntry(
@@ -113,7 +113,7 @@ class PlatformPopupMenuButton<T> extends StatelessWidget {
         child: entry.child,
       );
     }
-    return PopupMenuDivider();
+    return const PopupMenuDivider();
   }
 }
 
