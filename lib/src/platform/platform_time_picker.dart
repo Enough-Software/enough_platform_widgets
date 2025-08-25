@@ -27,7 +27,7 @@ Future<TimeOfDay?> showPlatformTimePicker({
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.4,
         child: Container(
-          color: CupertinoTheme.of(context).barBackgroundColor,
+          color: Theme.of(context).canvasColor,
           child: Column(
             children: [
               Row(
@@ -58,8 +58,10 @@ Future<TimeOfDay?> showPlatformTimePicker({
         ),
       ),
     );
-    if (result == true && pickedTime != null) {
-      return TimeOfDay.fromDateTime(pickedTime!);
+    if (result == true) {
+      return pickedTime != null
+          ? TimeOfDay.fromDateTime(pickedTime!)
+          : TimeOfDay.fromDateTime(initialDateTime);
     }
     return null;
   } else {
