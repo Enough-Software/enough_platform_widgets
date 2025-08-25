@@ -1,3 +1,6 @@
+## 1.1.2
+- Upgrade to flutter_platform_widgets 9
+
 ## 1.1.1
 - Upgrade to flutter_platform_widgets 7
 
