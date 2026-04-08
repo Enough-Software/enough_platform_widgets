@@ -44,7 +44,7 @@ class PlatformFilledButtonIcon extends StatelessWidget {
         style: style,
         focusNode: focusNode,
         clipBehavior: clipBehavior,
-        autofocus: autofocus,
+        autofocus: autofocus ?? false,
       ),
       cupertino: (context, platform) => CupertinoButton.filled(
         padding: EdgeInsets.all(8.0),
