@@ -44,7 +44,7 @@ class PlatformTextButtonIcon extends StatelessWidget {
         style: style,
         focusNode: focusNode,
         clipBehavior: clipBehavior,
-        autofocus: autofocus,
+        autofocus: autofocus ?? false,
       ),
       cupertino: (context, platform) => CupertinoButton(
         color: backgroundColor,
