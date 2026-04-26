@@ -29,16 +29,18 @@ class PlatformRadioListTile<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformWidget(
-      material: (context, platform) => RadioListTile<T>(
-        key: widgetKey,
-        value: value,
+      material: (context, platform) => RadioGroup<T>(
         groupValue: groupValue,
-        onChanged: onChanged,
-        toggleable: toggable,
-        title: title,
-        subtitle: subtitle,
-        activeColor: activeColor,
-        contentPadding: contentPadding,
+        onChanged: onChanged ?? (_) {},
+        child: RadioListTile<T>(
+          key: widgetKey,
+          value: value,
+          toggleable: toggable,
+          title: title,
+          subtitle: subtitle,
+          activeColor: activeColor,
+          contentPadding: contentPadding,
+        ),
       ),
       cupertino: (context, platform) => CupertinoRadioListTile<T>(
         key: widgetKey,

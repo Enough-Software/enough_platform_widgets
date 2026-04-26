@@ -19,7 +19,7 @@ class CupertinoBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = CupertinoTheme.of(context)
         .barBackgroundColor
-        .withOpacity(backgroundOpacity);
+        .withValues(alpha: backgroundOpacity);
     return blurBackground
         ? ClipRect(
             child: BackdropFilter(

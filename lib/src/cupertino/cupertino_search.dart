@@ -154,7 +154,6 @@ class _CupertinoSearchPage extends StatelessWidget {
                         placeholderStyle: const TextStyle(
                             color: CupertinoColors.secondaryLabel),
                         suffix: CupertinoButton(
-                          minSize: 10,
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 2),
                           child: Icon(
                             CupertinoIcons.xmark_circle_fill,
@@ -162,6 +161,7 @@ class _CupertinoSearchPage extends StatelessWidget {
                             color: CupertinoColors.secondaryLabel,
                           ),
                           onPressed: () => controller.text = '',
+                          minimumSize: Size(10, 10),
                         ),
                         suffixMode: OverlayVisibilityMode.editing,
                         decoration: BoxDecoration(
