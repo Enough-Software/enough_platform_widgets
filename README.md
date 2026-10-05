@@ -1,6 +1,10 @@
 # enough_platform_widgets
 [![enough_platform_widgets version](https://img.shields.io/pub/v/enough_platform_widgets.svg)](https://pub.dartlang.org/packages/enough_platform_widgets)
 
+> **⚠️ This package is discontinued.**
+> It is no longer actively maintained and no new releases will be published.
+> The code remains available for reference, but you should look for actively maintained alternatives before using it in new projects.
+
 More cross platform widgets for Flutter developers.
 
 Based on these great packages:

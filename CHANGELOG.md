@@ -1,3 +1,6 @@
+## Discontinued
+This package is discontinued and no longer maintained. No further releases will be published.
+
 ## 1.1.2
 - Upgrade to flutter_platform_widgets 9
 
